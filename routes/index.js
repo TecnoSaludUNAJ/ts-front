@@ -4,8 +4,6 @@ const usuario = require('./usuario')
 //index
 routes.get('/', (req, res) => {res.render('index', {title: 'Inicio | Tecnosalud',})})
 
-routes.get('/paciente', (req, res) => {res.render('pacientes/index-paciente', {title: 'Paciente | Tecnosalud', scripts: ["pacientes.js"]})})
-
 // routes de usuario
 routes.use('/usuario', usuario)
 
