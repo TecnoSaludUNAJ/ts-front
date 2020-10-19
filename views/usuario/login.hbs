@@ -1,0 +1,26 @@
+{{> head}}
+{{! --------------- }}
+<div class="container">
+    <div class="row">
+        <div class="card mx-auto p-5 my-5">
+            <h1 class="display-4">Iniciar sesion</h1>
+            <form id="loginForm" class="my-2">
+                <div class="form-group">
+                <label for="InputDNi">DNI</label>
+                <input type="number" class="form-control" id="InputDNI" placeholder="N° DNI" name="dni">
+                </div>
+                <div class="form-group">
+                <label for="InputPassword1">Contraseña</label>
+                <input type="password" class="form-control" id="InputPassword" placeholder="Contraseña" name="password">
+                </div>
+                <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Recordar usuario</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block my-2 btn-lg">Ingresar</button>
+            </form>
+        </div>
+    </div>
+</div>
+{{! --------------- }}
+{{> footer}}
