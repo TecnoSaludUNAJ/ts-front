@@ -1,0 +1,12 @@
+    </div> <!-- end main div-->
+    <!-- bootstrap.js -->
+    <script src="/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    {{#if scripts}}
+      {{#each scripts}}
+        <script type="module" src="/js/{{this}}"></script>
+      {{/each}}
+    {{/if}}
+    <script type="module" src="/js/index.js"></script>
+  </body>
+</html>

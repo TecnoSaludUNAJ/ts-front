@@ -1,0 +1,23 @@
+{
+  "name": "ts-front",
+  "version": "1.0.0",
+  "description": "tecnosalud frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TecnoSaludUNAJ/ts-front.git"
+  },
+  "author": "borbotones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TecnoSaludUNAJ/ts-front/issues"
+  },
+  "homepage": "https://github.com/TecnoSaludUNAJ/ts-front#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.1"
+  }
+}
