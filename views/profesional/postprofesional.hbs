@@ -1,0 +1,43 @@
+{{> head}}
+{{! --------------- }}
+<body> 
+<div class="container">
+<div class="div-form">
+<div id="subtitle"><h2>Registrar Profesional</h2></div>
+     
+<form  id="form1">
+<label class="label1">Nombre:</label>
+<input class="form-input" type="text" name="nombre" id="nombre" placeholder="Nombre"><br>
+<label class="label1">Apellido:</label>
+<input class="form-input" type="text" name="apellido" id="apellido" placeholder="Apellido"><br>
+<label class="label1">Dni:</label>
+<input class="form-input" type="text" name="dni" id="dni" placeholder="Dni"><br>
+
+<label id="labelnacimiento" class="label1">Nacimiento:</label>
+<input class="form-input" type="date" id="fechanacimiento" name="fechanacimiento">
+
+<br><label class="label1">Matricula:</label>
+<input class="form-input" type="text" name="matricula" id="matricula" placeholder="Matricula"><br>
+
+<div class="radio">
+<input  type="radio" class="radio" name="optradio" checked value="Masculino">  Masculino </label>
+
+<input  type="radio" name="optradio" value="Femenino">  Femenino</label>
+</div>
+
+<label class="label1">Domicilio:</label>
+<input class="form-input" type="text" name="domicilio" id="domicilio" placeholder="Domicilio"><br>
+<label class="label1">Email:</label>
+<input class="form-input" type="text" name="email" id="email" placeholder="Email"><br>
+<label class="label1">Telefono:</label>
+<input class="form-input" type="text" name="telefono" id="telefono" placeholder="Telefono"><br>
+
+<input type="submit" id="btn1" class="btn btn-primary"></input>
+</form>
+</div>
+</div>
+</div>
+
+</body>
+{{! --------------- }}
+{{> footer}}

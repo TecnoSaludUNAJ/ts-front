@@ -1,0 +1,43 @@
+
+#subtitle
+{
+    margin-top: 60px;
+    margin-bottom: 40px;
+    color: black;
+    text-align: center;
+}
+
+#btn1
+{
+    margin-top: 30px;
+    text-align: center !important;
+    margin-left: 47vw;
+
+}
+.radio
+{
+color: white;
+text-align: center;
+margin-left: 0px;
+
+}
+
+.form-input
+{
+    display: block-inline;
+    margin-right: 600px;
+    float: right;
+
+}
+.label1
+{
+    width: auto;
+    padding: 0;
+    color: black;
+    margin-right: 0px;
+    margin-left: 505px;
+}
+#labelnacimiento
+{
+    margin-right: 0px;
+}
