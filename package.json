@@ -4,7 +4,8 @@
   "description": "tecnosalud frontend",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon app"
+    "test": "nodemon app",
+    "start": "node App.js"
   },
   "repository": {
     "type": "git",
