@@ -1,0 +1,32 @@
+#div-especialidad
+{
+    display: block;
+    text-align: center;
+
+}
+#title-especialidad
+{
+    font-style: italic;
+    margin-top: 100px;
+
+}
+#form-especialidad
+{
+
+   margin-top: 10%;
+
+}
+#label-especialidad
+{
+    font-size: larger;
+    font-weight: 700;
+}
+#input-especialidad
+{
+    width: 20vw;
+}
+#btn-especialidad
+{
+width: 100px;
+
+}
