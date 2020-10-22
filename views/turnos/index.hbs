@@ -1,0 +1,58 @@
+{{> head}}
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col">
+      <h1 class="display-5 mt-5 text-center">Elija la especialidad la cual desea reservar un turno</h1>
+      <form id="especialidadForm">
+        <div class="form-row justify-content-md-center mt-5">
+          <div class="col-sm-10 my-1">
+            <label class="mr-sm-2 sr-only" for="selectEspecialidad">Especialidad</label>
+            <select name="especialidad" class="form-control form-control-lg" id="selectEspecialidad">
+              <option >Seleccione una especialidad</option>
+              <option value="10">Clínico</option>
+              <option value="10">Clinico2</option>
+            </select>
+          </div>
+          <div class="col-auto my-1">
+            <button id="buscarTurnosPorEspecialidad" class="btn btn-lg btn-primary">Buscar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <table id="tablaDeTurnos" class="table text-center d-none">
+        <thead>
+          <tr>
+            <th scope="col">Hora</th>
+            <th scope="col">Lunes</th>
+            <th scope="col">Martes</th>
+            <th scope="col">Miercoles</th>
+            <th scope="col">Jueves</th>
+            <th scope="col">Viernes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--<tr>
+            <th scope="row">09:00</th>
+            <td></td>
+            <td><button type="button" class="btn btn-success">Reservar</button></td>
+            <td></td>
+            <td><button type="button" class="btn btn-success">Reservar</button></td>
+            <td><button type="button" class="btn btn-success">Reservar</button></td>
+          </tr>
+          <tr>
+            <th scope="row">09:30</th>
+            <td><button type="button" class="btn btn-success">Reservar</button></td>
+            <td><button type="button" class="btn btn-success">Reservar</button></td>
+            <td><button type="button" class="btn btn-success">Reservar</button></td>
+            <td></td>
+            <td><button type="button" class="btn btn-success">Reservar</button></td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{{> footer}}
