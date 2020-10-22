@@ -1,4 +1,3 @@
-
 #subtitle
 {
     margin-top: 60px;
@@ -10,13 +9,11 @@
 #btn1
 {
     margin-top: 30px;
-    text-align: center !important;
     margin-left: 47vw;
-
 }
 .radio
 {
-color: white;
+color: black;
 text-align: center;
 margin-left: 0px;
 
@@ -24,10 +21,8 @@ margin-left: 0px;
 
 .form-input
 {
-    display: block-inline;
     margin-right: 600px;
     float: right;
-
 }
 .label1
 {
