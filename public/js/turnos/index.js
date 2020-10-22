@@ -40,7 +40,8 @@ const handleClickBuscarTurnos = async (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
   const especialidad = formData.get("especialidad");
-  const fecha = "10-21-2020";
+  const today = new Date();
+  const fecha = `${today.getDay()}-${today.getMonth() + 1}-${today.getFullYear()}`;
   const turnos = processTurnos(await turnoService.GetTurnosDisponibles(especialidad, fecha));
   showTurnosInTable(turnos);
 };
