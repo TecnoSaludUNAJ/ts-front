@@ -14,5 +14,5 @@ app.use('/', routes)
 
 // run
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`TecnoSalud frontend corriendo en http://localhost:${port}`)
 })

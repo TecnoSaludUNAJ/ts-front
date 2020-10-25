@@ -29,9 +29,8 @@ function PostProfesional(profesionaljson)
 }
 
 
-const dom= document.getElementById("form1").addEventListener("submit",function(event){
+const dom= document.getElementById("form1").addEventListener("submit",function(){
 
-    event.preventDefault();
     const nombre=document.getElementById("nombre").value;
     const apellido=document.getElementById("apellido").value;
     const dni=document.getElementById("dni").value;
