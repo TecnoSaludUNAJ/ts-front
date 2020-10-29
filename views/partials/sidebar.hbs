@@ -1,37 +1,114 @@
 <div id="sidebar-wrapper" class="border-right">
   <div class="accordion" id="accordionExample">
   <div class="card border-0">
-    <div class="card-header bg-white border-0 py-2" id="headingOne">
-        <button class="btn btn-link dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Turnos
+    <div class="card-header bg-white border-0 p-1" id="headingOne">
+        <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <i class="fas fa-th-large"></i> Mi cuenta
         </button>
     </div>
-
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-        Menu
+      <div class="card-body py-0">
+        <nav class="nav flex-column">
+          <a class="nav-link" href="#"><i class="fas fa-heart"></i> Mis turnos</a>
+        <a class="nav-link" href="#"><i class="fas fa-id-card-alt"></i> Datos personales</a>
+      </nav>
+      </div>
+    </div>
+    {{! paciente.gestionMed}}
+    <div class="card-header bg-white border-0 p-1" id="headingOne">
+        <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#pacGestMed" aria-expanded="true" aria-controls="pacGestMed">
+          <i class="fas fa-stethoscope"></i> Gestión médica
+        </button>
+    </div>
+    <div id="pacGestMed" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body py-0">
+        <nav class="nav flex-column">
+        <a class="nav-link" href="#"><i class="fas fa-laptop-medical"></i> Solicitar turno</a>
+        <a class="nav-link" href="#"><i class="fas fa-history"></i> Ver turnos</a>
+      </nav>
       </div>
     </div>
   </div>
-
-  <!-- administrar -->
-  <small class="nav-subtitle">Admnistracion</small>
-
+  <!-- profesional -->
   <div class="card border-0">
-    <div class="card-header bg-white border-0 py-2" id="headingOne">
-        <button class="btn btn-link dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="far fa-user"></i> Registrar
-        </button>
+    <small class="nav-subtitle">Profesional</small>
+    {{! prof.turnos }}
+    <div class="card-header bg-white border-0 p-1" id="headingOne">
+    <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#profTurnos" aria-expanded="true" aria-controls="profTurnos">
+      <i class="far fa-calendar-alt"></i> Turnos
+    </button>
     </div>
+    <div id="profTurnos" class="collapse" aria-labelledby="profTurnos" data-parent="#accordionExample">
+    <div class="card-body my-0 py-0">
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#"><i class="fas fa-calendar-day"></i> Agenda del día</a>
+      <a class="nav-link" href="#"><i class="fas fa-hand-holding-medical"></i> Gestionar turno</a>
+      <a class="nav-link" href="#"><i class="fas fa-briefcase-medical"></i> Ver turnos</a>
+    </nav>
+    </div>
+    </div>
+    {{! prof.historial }}
+    <div class="card-header bg-white border-0 p-1" id="headingOne">
+      <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#profHistorial" aria-expanded="true" aria-controls="profHistorial">
+        <i class="fas fa-laptop-medical"></i> Historial clínico
+      </button>
+    </div>
+    <div id="profHistorial" class="collapse" aria-labelledby="profHistorial" data-parent="#accordionExample">
+    <div class="card-body my-0 py-0">
+      <nav class="nav flex-column">
+        <a class="nav-link" href="#"><i class="fas fa-history"></i> Ver historial</a>
+        <a class="nav-link" href="#"><i class="fas fa-notes-medical"></i> Agregar historial</a>
+      </nav>
+    </div>
+    </div>
+  </div>
+  <!-- administracion -->
+  <div class="card border-0">
+    <small class="nav-subtitle">Admnistracion</small>
+    {{! adm.profesionales }}
+    <div class="card-header bg-white border-0 p-1" id="headingOne">
+      <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#admProfesionales" aria-expanded="true" aria-controls="admProfesionales">
+        <i class="fas fa-user-md"></i> Profesionales
+      </button>
+    </div>
+    <div id="admProfesionales" class="collapse" aria-labelledby="admProfesionales" data-parent="#accordionExample">
+    <div class="card-body my-0 py-0">
+      <nav class="nav flex-column">
+        <a class="nav-link" href="/profesional/registrar">Alta Profesional</a>
+        <a class="nav-link" href="#">Alta Especialista</a>
+        <a class="nav-link" href="/especialidad/registrar">Alta Especialidad</a>
+      </nav>
+    </div>
+    </div>
+     {{! adm.pacientes }}
+     <div class="card-header bg-white border-0 p-1" id="headingOne">
+      <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#admPacientes" aria-expanded="true" aria-controls="admPacientes">
+        <i class="fas fa-hospital-user"></i> Pacientes
+      </button>
+    </div>
+    <div id="admPacientes" class="collapse" aria-labelledby="admPacientes" data-parent="#accordionExample">
+    <div class="card-body my-0 py-0">
+      <nav class="nav flex-column">
+        <a class="nav-link" href="/paciente/registrar">Alta Paciente</a>
+        <a class="nav-link" href="/paciente/registrar">Ver historia clinica</a>
+        <a class="nav-link" href="/paciente/registrar">Lista Pacientes</a>
+      </nav>
+    </div>
+    </div>
+    {{! adm.turnos }}
+    <div class="card-header bg-white border-0 p-1" id="headingOne">
+    <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#admTurnos" aria-expanded="true" aria-controls="admTurnos">
+      <i class="far fa-calendar-alt"></i> Turnos
+    </button>
+    </div>
+    <div id="admTurnos" class="collapse" aria-labelledby="admTurnos" data-parent="#accordionExample">
+    <div class="card-body my-0 py-0">
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#">Ver turnos</a>
+    </nav>
+    </div>
+    </div>
+  </div>
 
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body my-0 py-0">
-        <nav class="nav flex-column">
-          <a class="nav-link active" href="#">Active</a>
-          <a class="nav-link" href="#">Link</a>
-        </nav>
-      </div>
-    </div>
-    </div>
 </div>
 </div>
