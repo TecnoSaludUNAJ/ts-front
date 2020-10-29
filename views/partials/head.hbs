@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/fontawesome.all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/custom.css">
     <link rel="stylesheet" href="/css/profesional.css">
     <link rel="stylesheet" href="/css/especialidad.css">
@@ -14,4 +15,8 @@
   </head>
   <body>
     {{> navbar}}
-    <div id="app">
+    <div id="wrapper" class="toggled">
+    {{> sidebar}}
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+      <div id="app">
