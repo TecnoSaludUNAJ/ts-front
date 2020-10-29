@@ -6,6 +6,7 @@ const turnos = require('./turnos')
 const especialidad = require('./especialidad')
 const especialista = require('./especialista');
 const { route } = require('./especialista');
+const paciente = require('./paciente');
 
 //index
 routes.get('/', (req, res) => { res.render('index', { title: 'Inicio | Tecnosalud', }) })
@@ -17,6 +18,7 @@ routes.use('/historiaClinica', historia)
 routes.use('/turnos', turnos);
 routes.use('/especialidad', especialidad);
 routes.use('/especialista',especialista);
+routes.use('/paciente',paciente);
 
 
 //404

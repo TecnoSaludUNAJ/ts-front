@@ -1,0 +1,83 @@
+{{> head}}
+{{! --------------- }}
+<div class="container">
+  <header>
+    <h1>Alta de Paciente</h1>
+  </header>
+  <hr class="my-3">
+  <form id="registroPaciente">
+    <!-- datos personales -->
+    <section>
+      <h5 class="text-muted py-2">Datos personales</h5>
+      <div class="form-row mb-4">
+        <div class="col">
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
+        </div>
+      </div>
+      <div class="form-row mb-4">
+        <div class="col">
+          <input type="number" class="form-control" id="dni" name="dni" placeholder="DNI">
+        </div>
+        <div class="col">
+          <select class="form-control" id="sexo" name="sexo">
+            <option selected value="">Seleccionar sexo</option>
+            <option>Femenino</option>
+            <option>Masculino</option>
+            <option>Otro</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row mb-4">
+        <div class="col">
+          <select class="form-control" id="nacionalidad" name="nacionalidad" placeholder="Nacionalidad">
+          <option selected value="">Seleccionar nacionalidad</option>
+          </select>
+        </div>
+        <div class="col">
+          <select class="form-control" id="estadocivil" name="estadocivil">
+            <option selected value="">Estado civil</option>
+            <option>Soltero(a)</option>
+            <option>Casado(a)</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="fechanacim">Fecha de nacimiento</label>
+          <input type="date" class="form-control" id="fechanacim" name="fechanacim">
+        </div>
+        <div class="form-group">
+          <label for="domicilio">Domicilio</label>
+          <input type="text" class="form-control" id="domicilio" name="domicilio">
+        </div>
+    </section>
+    <hr class="my-3">
+    <!-- datos contacto -->
+    <section>
+      <h5 class="text-muted py-2">Datos de contacto</h5>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="telefono">Telefono</label>
+        <input type="text" class="form-control" id="telefono" name="telefono">
+      </div>
+    </section>
+    <section>
+      <h5 class="text-muted py-2">Datos administrativos</h5>
+      <div class="form-group">
+        <label for="obrasocial">Obra social</label>
+        <select class="form-control" id="obrasocial" name="obrasocial">
+          <option selected value="">Seleccionar obra social</option>
+          </select>
+      </div>
+    </section>
+    <button type="submit" class="btn btn-success btn-lg">Registrar Paciente</button>
+</form>
+</div>
+{{! --------------- }}
+{{> footer}}
