@@ -1,82 +1,84 @@
 {{> head}}
 {{! --------------- }}
 
-<div class="container " >
-    
+<div class="container ">
+
     <div class="row">
-    <div class="col-12 text-center mt-5" id="subtitle"><h2>Registrar Profesional</h2></div>
-    </div>   
-    
-    <form  id="form1">
-    
-    <div class="row m-5">
-        <div class="col-4">
-            <label class="label1">Nombre:</label>
-            <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre"><br>
+        <div class="col-12 text-center mt-4" id="subtitle">
+            <h2>Registrar Profesional</h2>
         </div>
-        <div class="col-4">
-            <label class="label1">Apellido:</label>
-            <input class="form-control" type="text" name="apellido" id="apellido" placeholder="Apellido"><br>
-        </div>
-        <div class="col-4">
-            <label class="label1">Dni:</label>
-            <input class="form-control" type="text" name="dni" id="dni" placeholder="Dni"><br>
-        </div>
-            
     </div>
-    
-    <div class="row m-5">
-            
-        <div class="col-4">
-        <label id="labelnacimiento" class="label1">Nacimiento:</label>
-        <input class="form-control" type="date" id="fechanacimiento" name="fechanacimiento">
+
+    <form id="form1">
+
+        <div class="row m-5">
+            <div class="col-4">
+                <label class="label1">Nombre:</label>
+                <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre"><br>
+            </div>
+            <div class="col-4">
+                <label class="label1">Apellido:</label>
+                <input class="form-control" type="text" name="apellido" id="apellido" placeholder="Apellido"><br>
+            </div>
+            <div class="col-4">
+                <label class="label1">Dni:</label>
+                <input class="form-control" type="text" name="dni" id="dni" placeholder="Dni"><br>
+            </div>
+
         </div>
 
-        <div class="col-4 text-center">
-            <label class="form-check-label">Genero:</label>
-            <div class="form-check-inline">              
-                <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="optradio" value="Masculino">Masculino
-                </label>
-              </div>
-              <div class="form-check-inline">
-                <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="optradio" value="Femenino">Femenino
-                </label>
-              </div>
+        <div class="row m-5">
+
+            <div class="col-4">
+                <label id="labelnacimiento" class="label1">Nacimiento:</label>
+                <input class="form-control" type="date" id="fechanacimiento" name="fechanacimiento">
+            </div>
+
+            <div class="col-4 text-center">
+                <label class="form-check-label">Sexo:</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optradio" value="Masculino">Masculino
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optradio" value="Femenino">Femenino
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <label class="label1">Matricula:</label>
+                <input class="form-control" type="text" name="matricula" id="matricula" placeholder="Matricula">
+            </div>
+
         </div>
-            
-        <div class="col-4">
-            <label class="label1">Matricula:</label>
-            <input class="form-control" type="text" name="matricula" id="matricula" placeholder="Matricula">
-        </div>
 
-    </div>
-    
-    <div class="row m-5">
-    
-        <div class="col-4">
-    <label class="label1">Domicilio:</label>
-    <input class="form-control" type="text" name="domicilio" id="domicilio" placeholder="Domicilio">
-</div>
-    
-    <div class="col-4">
-    <label class="label1">Email:</label>
-    <input class="form-control" type="text" name="email" id="email" placeholder="Email">
-</div>
-    
-    <div class="col-4">
-    <label class="label1">Telefono:</label>
-    <input class="form-control" type="text" name="telefono" id="telefono" placeholder="Telefono"><br>
-  
-</div> 
+        <div class="row m-5">
 
-<div class="col-12 text-center">
-    <button class="btn btn-primary w-25 mt-4" id="btn1" type="submit">Crear</button>
-    
-</div>
+            <div class="col-4">
+                <label class="label1">Domicilio:</label>
+                <input class="form-control" type="text" name="domicilio" id="domicilio" placeholder="Domicilio">
+            </div>
 
-</form>
+            <div class="col-4">
+                <label class="label1">Email:</label>
+                <input class="form-control" type="text" name="email" id="email" placeholder="Email">
+            </div>
+
+            <div class="col-4">
+                <label class="label1">Telefono:</label>
+                <input class="form-control" type="text" name="telefono" id="telefono" placeholder="Telefono"><br>
+
+            </div>
+
+            <div class="col-12 text-center">
+                <button class="btn btn-primary w-25 mt-4" id="btn1" type="submit">Crear</button>
+
+            </div>
+
+    </form>
 </div>
 
 
