@@ -1,42 +1,48 @@
-
 {{> head}}
-{{! --------------- }}  
+{{! --------------- }}
 
 <div class="container">
     <div class="row">
         <div class="col-12 text-center mt-5" id="div-especialista">
-        <h2 >Registrar Especialista</h2>
+            <h2>Registrar Especialista</h2>
         </div>
     </div>
     <form id="form-especialista">
-        <div class="row mt-5">             
-            <div class="col-4 m-auto">                    
-                <label class="font-weight-bolder col-form-label-lg">Ingrese Id del profesional: </label>
-                <input class="form-control" type="number" name="profesional" id="input-especialista-profesionalid">
-            </div>       
-        </div>  
-        <div class="row">             
-            <div class="col-4 m-auto">                    
-                <label class="font-weight-bolder col-form-label-lg">Seleccione especialidad: </label>
-                <input list="listespecialidades" class="form-control" name="especialidad" id="input-especialista-especialidadid">
-                    <datalist id="listespecialidades">               
-                         
-                    </datalist>
-            </div>       
-        </div>  
-        <div class="row">             
-            <div class="col-4 m-auto">                    
-                <label class="font-weight-bolder col-form-label-lg">Ingrese Id del Calendario de turnos: </label>
-                <input class="form-control" type="number" name="calendarioturnos" id="input-especialista-calendarioturnosid">
-            </div>       
-        </div>                        
-        <div class="row text-center">   
-            <div class="col-12">
-                <button class="btn btn-primary w-25 mt-4" type="submit">Crear</button>            
+        <div class="row mt-5">
+            <div class="col-4 m-auto">
+                <label class="font-weight-bolder col-form-label-lg">Seleccione el profesional: </label>
+                <input class="form-control" list="listprofesionales" name="profesional"
+                    id="input-especialista-profesionalid">
+                <datalist id="listprofesionales">
+
+                </datalist>
+
             </div>
         </div>
-        </form>
-    </div>
+        <div class="row">
+            <div class="col-4 m-auto">
+                <label class="font-weight-bolder col-form-label-lg">Seleccione especialidad: </label>
+                <input list="listespecialidades" class="form-control" name="especialidad"
+                    id="input-especialista-especialidadid">
+                <datalist id="listespecialidades">
+
+                </datalist>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 m-auto">
+                <label class="font-weight-bolder col-form-label-lg">Ingrese Id del Calendario de turnos: </label>
+                <input class="form-control" type="number" name="calendarioturnos"
+                    id="input-especialista-calendarioturnosid">
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-12">
+                <button class="btn btn-primary w-25 mt-4" type="submit">Crear</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 {{! --------------- }}
 {{> footer}}
