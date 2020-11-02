@@ -1,3 +1,9 @@
+import {
+  ESPECIALIDADES_API_URL,
+  ESPECIALISTAS_API_URL,
+  PROFESIONALES_API_URL,
+} from "../constants.js";
+
 class Especialista {
   constructor(profesionalid, especialidadid, calendarioturnos) {
     this.profesionalId = profesionalid;
@@ -9,7 +15,7 @@ class Especialista {
 var profesionalId;
 
 function PostEspecialista(especialistajson) {
-  fetch("https://localhost:44306/api/Especialistas", {
+  fetch(ESPECIALISTAS_API_URL, {
     method: "POST",
     body: especialistajson,
     headers: { "Content-Type": "application/json;charset=UTF-8" },
@@ -17,7 +23,7 @@ function PostEspecialista(especialistajson) {
 }
 
 const getEspecialidades = function () {
-  fetch("https://localhost:44306/api/Especialidades")
+  fetch(ESPECIALIDADES_API_URL)
     .then((response) => response.json())
     .then((lista) => {
       mostrarEspecialidades(lista);
@@ -29,20 +35,15 @@ async function getProfesionales(
   calendarioTurnos,
   especialidadId
 ) {
-  await fetch("https://localhost:44306/api/Profesionales")
+  await fetch(PROFESIONALES_API_URL)
     .then((response) => response.json())
     .then((lista) => {
       if (profesionalname == null || profesionalname == undefined) {
         mostrarProfesionales(lista);
       } else {
-        console.log("entre");
         for (const item of lista) {
-          console.log(profesionalname, "==", `${item.nombre} ${item.apellido}`);
-
           if (profesionalname == `${item.nombre} ${item.apellido}`) {
-            console.log("entreif");
             profesionalId = item.id;
-            console.log(profesionalId);
 
             var especialista = new Especialista(
               profesionalId,
@@ -90,7 +91,7 @@ window.onload = function () {
 
 //Obteniendo el id de la especialidad seleccionada y pasando los datos a getProsionales para obtener su Id
 async function getId(profesionalname, calendarioTurnos, especialidad) {
-  await fetch("https://localhost:44306/api/Especialidades")
+  await fetch(ESPECIALIDADES_API_URL)
     .then((response) => response.json())
     .then((lista) => {
       for (const item of lista) {

@@ -1,3 +1,5 @@
+import { ESPECIALIDADES_API_URL } from "../constants.js";
+
 class Especialidad {
   constructor(tipoEspecialidad) {
     this.tipoEspecialidad = tipoEspecialidad;
@@ -5,7 +7,7 @@ class Especialidad {
 }
 
 function PostEspecialidad(especialidadjson) {
-  fetch("https://localhost:44306/api/Especialidades", {
+  fetch(ESPECIALIDADES_API_URL, {
     method: "POST",
     body: especialidadjson,
     headers: { "Content-Type": "application/json;charset=UTF-8" },

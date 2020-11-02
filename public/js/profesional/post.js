@@ -1,3 +1,5 @@
+import {PROFESIONALES_API_URL } from "../constants.js";
+
 class Profesional {
   constructor(
     nombre,apellido,dni,fechaNacimiento,matricula,telefono,email,domicilio,sexo
@@ -15,7 +17,7 @@ class Profesional {
 }
 
 function PostProfesional(profesionaljson) {
-  fetch("https://localhost:44306/api/Profesionales", {
+  fetch(PROFESIONALES_API_URL, {
     method: "POST",
     body: profesionaljson,
     headers: {
