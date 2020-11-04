@@ -5,3 +5,25 @@ export const DAYS = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Vier
 export const ESPECIALIDADES_API_URL = "https://localhost:44306/api/Especialidades";
 export const ESPECIALISTAS_API_URL = "https://localhost:44306/api/Especialistas";
 export const PROFESIONALES_API_URL = "https://localhost:44306/api/Profesionales";
+
+export class Especialista {
+    constructor(profesionalid, especialidadid) {
+      this.profesionalId = profesionalid;
+      this.especialidadId = especialidadid;
+    }
+  }
+
+  export class Especialidad {
+    constructor(tipoEspecialidad) {
+      this.tipoEspecialidad = tipoEspecialidad;
+    }
+  }
+
+  export class CalendarioTurnos {
+    constructor(IdEspecialista,diaId,horaInicio,horaFin) {
+      this.idEspecialista=IdEspecialista,
+      this.diaId=diaId,
+      this.horaInicio=horaInicio,
+      this.horaFin=horaFin
+    }
+  }

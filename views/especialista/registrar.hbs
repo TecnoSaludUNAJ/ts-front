@@ -29,18 +29,45 @@
                 </datalist>
             </div>
         </div>
-        <div class="row">
-            <div class="col-4 m-auto">
-                <label class="font-weight-bolder col-form-label-lg">Ingrese Id del Calendario de turnos: </label>
-                <input class="form-control" type="number" name="calendarioturnos"
-                    id="input-especialista-calendarioturnosid">
+
+
+        <div class="row mt-5">
+            <div class="col">
+                <h6 for="dias" class="font-weight-bolder col-form-label-lg ">Seleccione los dias:</h6>
+
+                <select class="form-control" name="dias">
+                    <option value="">-----</option>
+                    <option value="Lunes">Lunes</option>
+                    <option value="Martes">Martes</option>
+                    <option value="Miercoles">Miercoles</option>
+                    <option value="Jueves">Jueves</option>
+                    <option value="Viernes">Viernes</option>
+                </select>
+            </div>
+            <div class="col align-content-center">
+                <label class="font-weight-bolder col-form-label-lg" for="appt">Hora de inicio de jornada:</label>
+                <input type="time" class="form-control" name="horarioinicio">
+            </div>
+
+            <div class="col">
+                <label class="font-weight-bolder col-form-label-lg" for="appt">Hora de finalización de jornada:</label>
+                <input type="time" class="form-control" name="horariofin">
             </div>
         </div>
+
+
+        <div id="agregardias">
+            {{!-- place for add days --}}
+        </div>
+
+        <button class="btn btn-primary w-25 mt-4" id="btndias" type="submit">Agregar Dias</button>
+
         <div class="row text-center">
             <div class="col-12">
-                <button class="btn btn-primary w-25 mt-4" type="submit">Crear</button>
+                <button class="btn btn-primary w-25 mt-4" id="btnform" type="submit">Crear</button>
             </div>
         </div>
+
     </form>
 </div>
 
