@@ -71,6 +71,8 @@ const showTurnosInTable = (turnos) => {
       </td>` : '<td></td>';
     });
   });
+
+  document.getElementById("seccionTurnos").classList.remove("d-none");
 };
 
 window.reservar = (fecha, horaInicio, idEspecialista) => {
@@ -98,11 +100,26 @@ const handleClickBuscarTurnos = async (e) => {
   const formData = new FormData(e.target);
   const especialidad = formData.get("especialidad");
   const today = new Date();
-  const fecha = `${today.getMonth() + 1}-${today.getDate()}-${today.getFullYear()}`;
-  const response = await turnoService.GetTurnosDisponibles(especialidad, fecha);
+  document.getElementById("turnosDesde").value = today;
+  await fetchAndRenderTable(especialidad, today);
+};
+
+const fetchAndRenderTable = async (especialidad, date) =>{
+  const formatedDate = `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
+  const response = await turnoService.GetTurnosDisponibles(especialidad, formatedDate);
   const turnos = processTurnos(response);
   showDaysInHeaderTable(response);
   showTurnosInTable(turnos);
 };
 
+const fetchAndRenderTableByWeek = async (operation) => {
+  const especialidad = document.getElementById("selectEspecialidad").value;
+  const turnosDesde = new Date(document.getElementById("turnosDesde").value);
+  turnosDesde.setDate(operation(turnosDesde.getDate()));
+  document.getElementById("turnosDesde").value = turnosDesde;
+  await fetchAndRenderTable(especialidad, turnosDesde);
+}
+
 document.getElementById('especialidadForm').addEventListener('submit', handleClickBuscarTurnos);
+document.getElementById('buscarTurnosAnteriorSemana').addEventListener('click', () => fetchAndRenderTableByWeek((date) => date - 5));
+document.getElementById('buscarTurnosSiguienteSemana').addEventListener('click', () => fetchAndRenderTableByWeek((date) => date + 5));

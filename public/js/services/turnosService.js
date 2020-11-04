@@ -6,7 +6,7 @@ const GetTurnos = () => {
     .catch(err => console.error('ERROR: ' + err))
 };
 
-const GetTurnosDisponibles = (especialidad = 10, fecha) => {
+const GetTurnosDisponibles = (especialidad, fecha) => {
   const url = TURNOS_DISPONIBLES_API_URL + "?fecha=" + fecha + "&IdEspecialista=" + especialidad;
   return fetch(url)
     .then(response => response.json())

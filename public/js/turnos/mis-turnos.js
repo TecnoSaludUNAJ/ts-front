@@ -1,6 +1,21 @@
 import turnoService from "../services/turnosService.js";
 import { formatHoursTwoDigits } from "../utils.js";
 
+const getEspecialista = (especialistaId) => {
+  const especialistas = [{
+    idEspecialista: 10,
+    nom_profesional: "Dr Oscar Mendez",
+    nom_especialidad: "Clínico",
+  },
+  {
+    idEspecialista: 11,
+    nom_profesional: "Dra Lucia Ramos",
+    nom_especialidad: "Traumatología",
+  }];
+
+  return especialistas.find((especialista) => especialista.idEspecialista === especialistaId);
+};
+
 const showTurnosInTable = (turnos) => {
   const table = document.getElementById("tablaDeTurnos");
   const tableBody = table.getElementsByTagName('tbody')[0];
@@ -8,10 +23,17 @@ const showTurnosInTable = (turnos) => {
 
   turnos.forEach((turno, index) => {
     const row = tableBody.insertRow(index);
+    const {nom_profesional, nom_especialidad} = getEspecialista(turno.idEspecialista);
     row.innerHTML = `
       <th scope="row">
         ${turno.id}
       </th>
+      <td>
+        ${nom_profesional}
+      </td>
+      <td>
+        ${nom_especialidad}
+      </td>
       <td>
         ${turno.idConsultorio}
       </td>
