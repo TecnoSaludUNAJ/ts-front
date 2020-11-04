@@ -1,6 +1,6 @@
 {{> head}}
 {{! --------------- }}
-<div class="container">
+<div class="container pb-5">
   <header>
     <h1>Alta de Paciente</h1>
   </header>
@@ -11,18 +11,18 @@
       <h5 class="text-muted py-2">Datos personales</h5>
       <div class="form-row mb-4">
         <div class="col">
-          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
         </div>
         <div class="col">
-          <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
+          <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido" required>
         </div>
       </div>
       <div class="form-row mb-4">
         <div class="col">
-          <input type="number" class="form-control" id="dni" name="dni" placeholder="DNI">
+          <input type="number" class="form-control" id="dni" name="dni" placeholder="DNI" required>
         </div>
         <div class="col">
-          <select class="form-control" id="sexo" name="sexo">
+          <select class="form-control" id="sexo" name="sexo" required>
             <option selected value="">Seleccionar sexo</option>
             <option>Femenino</option>
             <option>Masculino</option>
@@ -32,12 +32,12 @@
       </div>
       <div class="form-row mb-4">
         <div class="col">
-          <select class="form-control" id="nacionalidad" name="nacionalidad" placeholder="Nacionalidad">
+          <select class="form-control" id="nacionalidad" name="nacionalidad" placeholder="Nacionalidad" required>
           <option selected value="">Seleccionar nacionalidad</option>
           </select>
         </div>
         <div class="col">
-          <select class="form-control" id="estadocivil" name="estadocivil">
+          <select class="form-control" id="estadocivil" name="estadocivil" required>
             <option selected value="">Estado civil</option>
             <option>Soltero(a)</option>
             <option>Casado(a)</option>
@@ -47,11 +47,11 @@
         </div>
         <div class="form-group">
           <label for="fechanacim">Fecha de nacimiento</label>
-          <input type="date" class="form-control" id="fechanacim" name="fechanacim">
+          <input type="date" class="form-control" id="fechanacim" name="fechanacim" required>
         </div>
         <div class="form-group">
           <label for="domicilio">Domicilio</label>
-          <input type="text" class="form-control" id="domicilio" name="domicilio">
+          <input type="text" class="form-control" id="domicilio" name="domicilio" required>
         </div>
     </section>
     <hr class="my-3">
@@ -60,23 +60,27 @@
       <h5 class="text-muted py-2">Datos de contacto</h5>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email">
+        <input type="email" class="form-control" id="email" name="email" required>
       </div>
       <div class="form-group">
         <label for="telefono">Telefono</label>
-        <input type="text" class="form-control" id="telefono" name="telefono">
+        <input type="text" class="form-control" id="telefono" name="telefono" required>
       </div>
     </section>
     <section>
       <h5 class="text-muted py-2">Datos administrativos</h5>
       <div class="form-group">
         <label for="obrasocial">Obra social</label>
-        <select class="form-control" id="obrasocial" name="obrasocial">
+        <select class="form-control" id="obrasocial" name="obrasocial" required>
           <option selected value="">Seleccionar obra social</option>
           </select>
       </div>
+      <div class="form-group">
+        <label for="usuarioId">Usuario ID</label>
+        <input type="number" class="form-control" id="usuarioId" name="usuarioId" required>
+      </div>
     </section>
-    <button type="submit" class="btn btn-success btn-lg">Registrar Paciente</button>
+    <button type="submit" class="btn btn-success btn-lg m-auto">Registrar Paciente</button>
 </form>
 </div>
 {{! --------------- }}

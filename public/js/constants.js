@@ -4,3 +4,4 @@ export const TURNOS_DISPONIBLES_API_URL = API_URL + "/turnosdisponibles";
 
 // API PACIENTES
 export const PACIENTES_API_URL = "https://localhost:5001/api/Pacientes"
+export const OBRASSOCIALES_API_URL = "https://localhost:5001/api/ObrasSociales"
