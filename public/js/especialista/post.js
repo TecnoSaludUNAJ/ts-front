@@ -91,7 +91,6 @@ async function PostCalendarioTurnos(calendario) {
     headers: { "Content-Type": "application/json;charset=UTF-8" },
   })
     .then((response) => response.json())
-    .then((res) => console.log(res))
     .catch((err) => console.log(err));
 }
 
@@ -163,16 +162,17 @@ if (formespecialista) {
       calendarioTurnos: [],
     };
 
-    console.log(listadias[0]);
-    var calendarioturnos = new CalendarioTurnos(
-      especialistaId,
-      listadias[0],
-      horarios[0],
-      horarios[1]
-    );
-    listacalendarios.calendarioTurnos.push(calendarioturnos);
-
-    console.log(listacalendarios);
+    listadias.forEach((element) => {
+      var calendarioturnos = new CalendarioTurnos(
+        especialistaId,
+        element,
+        horarios[0],
+        horarios[1]
+      );
+      listacalendarios.calendarioTurnos.push(calendarioturnos);
+      horarios.shift();
+      horarios.shift();
+    });
 
     getId(profesionalname, especialidad, listacalendarios);
   };
@@ -187,27 +187,27 @@ btndias.onclick = (e) => {
   const element = document.createElement("div");
 
   element.innerHTML = `
-  <div class="row mt-5">
+  <div class="row mt-2">
   <div class="col">
-<h6 for="dias" class="font-weight-bolder col-form-label-lg ">Seleccione los dias:</h6>
+<h6 for="dias" class="font-weight-bolder col-form-label-md ">Seleccione los dias:</h6>
 
-  <select  class="form-control"  >
+  <select  class="form-control w-75"  >
   <option value="">-----</option>
   <option value="Lunes">Lunes</option>
   <option value="Martes">Martes</option>
   <option value="Miercoles">Miercoles</option>
   <option value="Jueves">Jueves</option>
-      <option value="viernes">Viernes</option>
+      <option value="Viernes">Viernes</option>
   </select>
      </div>      
        <div class="col align-content-center">
-      <label  class="font-weight-bolder col-form-label-lg" for="appt">Hora de inicio de jornada:</label>
-  <input type="time"  class="form-control"  >
+      <label  class="font-weight-bolder col-form-label-md" for="appt">Hora de inicio de jornada:</label>
+  <input type="time"  class="form-control w-75"  >
   </div>
    
    <div class="col">
-  <label class="font-weight-bolder col-form-label-lg" for="appt">Hora de finalización de jornada:</label>
-  <input  type="time"  class="form-control"  >
+  <label class="font-weight-bolder col-form-label-md" for="appt">Hora de finalización de jornada:</label>
+  <input  type="time"  class="form-control w-75"  >
 </div>
 </div>
   `;
