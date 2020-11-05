@@ -1,0 +1,50 @@
+{{> head}}
+{{! --------------- }}
+<div class="container pb-5">
+  <header>
+    <h1>Crear cuenta</h1>
+    <p class="lead">Por favor, complete los siguientes datos:</p>
+  </header>
+  <form id="registroPaciente">
+    <section>
+      <div class="form-row mb-4">
+        <div class="col">
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido" required>
+        </div>
+      </div>
+      <div class="form-row mb-4">
+        <div class="col">
+          <input type="number" class="form-control" id="dni" name="dni" placeholder="DNI" required>
+        </div>
+        <div class="col">
+          <select class="form-control" id="sexo" name="sexo" required>
+            <option selected value="">Seleccionar sexo</option>
+            <option>Femenino</option>
+            <option>Masculino</option>
+            <option>Otro</option>
+          </select>
+        </div>
+      </div>
+      <section>
+      <h5 class="text-muted py-2">Datos de contacto</h5>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="telefono">Contraseña nueva</label>
+        <small class="small text-muted">Debe tener un mínimo de 8 caracteres</small>
+        <input type="password" class="form-control" id="telefono" name="telefono" required>
+        <label for="telefono">Confirmar contraseña</label>
+        <small class="small text-muted">Vuelva a ingresar la contraseña</small>
+        <input type="password" class="form-control" id="telefono" name="telefono" required>
+      </div>
+    </section>
+    <button type="submit" class="btn btn-success btn-lg m-auto btn-block">Crear cuenta</button>
+</form>
+</div>
+{{! --------------- }}
+{{> footer}}
