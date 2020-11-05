@@ -1,10 +1,6 @@
-import { ESPECIALIDADES_API_URL } from "../constants.js";
+import { ESPECIALIDADES_API_URL ,  Especialidad } from "../constants.js";
 
-class Especialidad {
-  constructor(tipoEspecialidad) {
-    this.tipoEspecialidad = tipoEspecialidad;
-  }
-}
+
 
 function PostEspecialidad(especialidadjson) {
   fetch(ESPECIALIDADES_API_URL, {
@@ -28,3 +24,5 @@ const dom = document
 
     PostEspecialidad(especialidadjson);
   });
+
+  

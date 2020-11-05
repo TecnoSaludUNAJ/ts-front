@@ -1,13 +1,21 @@
 {{> head}}
 {{! --------------- }}
 <div class="container">
-    <div class="card border-primary">
-        <div class="card-body">
-        <label for="">Nombre:</label><br>
-        <label for="">Apellido:</label><br>
-        <label for="">Numero de documento:</label><br>
-        <a href="historiaClinica/historia" class="btn btn-primary">Historial</a>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Ingrese nombre o dni del paciente" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
         </div>
+    </div>
+    <div class="d-none">
+        <div class="card border-primary">
+            <div class="card-body">
+            <label for="">Nombre:</label><br>
+            <label for="">Apellido:</label><br>
+            <label for="">Numero de documento:</label><br>
+            <a href="historiaClinica/historia" class="btn btn-primary">Historial</a>
+        </div>
+    </div>
     </div>
 </div>
 {{! --------------- }}

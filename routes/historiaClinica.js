@@ -6,4 +6,7 @@ routes.get('/', (req, res) => { res.render('historia-clinica/pacientes', { title
 //historia-clinica/historia
 routes.get('/historia', (req, res) => { res.render('historia-clinica/historia', { title: 'Historia Clinica | Tecnosalud' }) })
 
-module.exports = routes;
+//historia-clinica/registro
+routes.get('/registrar', (req,res) => {res.render('historia-clinica/registrar', {title:'Registrar datos | Tecnosalud'}) })
+
+module.exports = routes; 
