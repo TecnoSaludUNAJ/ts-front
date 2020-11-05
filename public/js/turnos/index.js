@@ -32,13 +32,19 @@ const showDaysInHeaderTable = (response) => {
   const fechas = response.map((turnoInfo) => turnoInfo.fecha);
   const days = fechas.map((fecha) => {
     const day = new Date(fecha).getUTCDay();
-    return DAYS[day];
+    return {
+      fecha: new Date(fecha).toLocaleDateString(),
+      day: DAYS[day]
+    };
   });
 
-  let header = '<tr><th scope="col">Hora</th>';
+  let header = '<tr><th class="align-middle" scope="col">Hora</th>';
 
-  days.forEach((day) => {
-    header += `<th scope="col">${day}</th>`;
+  days.forEach(({fecha, day}) => {
+    header += `<th scope="col">
+      ${day}
+      (${fecha})
+    </th>`;
   });
 
   header += '</tr>';
@@ -55,7 +61,7 @@ const showTurnosInTable = (turnos) => {
   turnos.forEach(([key, rowData], index) => {
     const row = tableBody.insertRow(index);
     row.innerHTML = `
-      <th scope="row">
+      <th class="align-middle" scope="row">
         ${key}
       </th>
     `;
@@ -104,12 +110,15 @@ const handleClickBuscarTurnos = async (e) => {
   await fetchAndRenderTable(especialidad, today);
 };
 
+const disableButtonInCurrentWeek = (weekDate) => $('#buscarTurnosAnteriorSemana').prop('disabled', weekDate.toLocaleDateString() === new Date().toLocaleDateString());
+
 const fetchAndRenderTable = async (especialidad, date) =>{
   const formatedDate = `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
   const response = await turnoService.GetTurnosDisponibles(especialidad, formatedDate);
   const turnos = processTurnos(response);
   showDaysInHeaderTable(response);
   showTurnosInTable(turnos);
+  disableButtonInCurrentWeek(date);
 };
 
 const fetchAndRenderTableByWeek = async (operation) => {
@@ -119,6 +128,8 @@ const fetchAndRenderTableByWeek = async (operation) => {
   document.getElementById("turnosDesde").value = turnosDesde;
   await fetchAndRenderTable(especialidad, turnosDesde);
 }
+
+
 
 document.getElementById('especialidadForm').addEventListener('submit', handleClickBuscarTurnos);
 document.getElementById('buscarTurnosAnteriorSemana').addEventListener('click', () => fetchAndRenderTableByWeek((date) => date - 5));
