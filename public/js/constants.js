@@ -1,6 +1,6 @@
 export const API_URL = "https://localhost:44377/api";
-export const TURNOS_API_URL = API_URL + "/turnos";
-export const TURNOS_DISPONIBLES_API_URL = API_URL + "/turnosdisponibles";
+export const TURNOS_API_URL = "https://localhost:5011/api/turnos";
+export const TURNOS_DISPONIBLES_API_URL = "https://localhost:5011/api/turnosdisponibles";
 export const DAYS = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
 export const ESPECIALIDADES_API_URL = "https://localhost:44306/api/Especialidades";
 export const ESPECIALISTAS_API_URL = "https://localhost:44306/api/Especialistas";
@@ -29,5 +29,5 @@ export class Especialista {
   }
 
 // API PACIENTES
-export const PACIENTES_API_URL = "https://localhost:5001/api/Pacientes"
-export const OBRASSOCIALES_API_URL = "https://localhost:5001/api/ObrasSociales"
+export const PACIENTES_API_URL = "https://localhost:5021/api/Pacientes"
+export const OBRASSOCIALES_API_URL = "https://localhost:5021/api/ObrasSociales"
