@@ -33,7 +33,7 @@ export class Especialista {
     }
   }
 
-// API PACIENTES
+// API PACIENTESAD
 /* export const PACIENTES_API_URL = "https://localhost:5001/api/Pacientes"
 export const OBRASSOCIALES_API_URL = "https://localhost:5001/api/ObrasSociales" */
 export const PACIENTES_API_URL = "https://localhost:44310/api/Pacientes"
