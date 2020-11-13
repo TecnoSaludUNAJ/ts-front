@@ -30,6 +30,18 @@ const getObrasSociales = () => {
     .catch((err) => console.log("ERROR: " + err));
 };
 
+const postObraSocial = (obrasocial) => {
+  return fetch(OBRASSOCIALES_API_URL, {
+    method: "POST",
+    body: JSON.stringify(obrasocial),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .catch((err) => console.log("ERROR: " + err));
+};
+
 class PacienteDTO {
   constructor(
       nombre,
@@ -60,4 +72,15 @@ class PacienteDTO {
   }
 }
 
-export { getPacientebyID, getAllPacientes, postPaciente, getObrasSociales, PacienteDTO };
+class ObraSocialDTO {
+  constructor(
+      nombre,
+      sigla
+    ) {
+    this.obraSocial_Sigla = sigla;
+    this.obraSocial_Nombre = nombre;
+  }
+}
+
+
+export { getPacientebyID, getAllPacientes, postPaciente, getObrasSociales, postObraSocial, PacienteDTO, ObraSocialDTO };

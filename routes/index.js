@@ -7,6 +7,7 @@ const especialidad = require('./especialidad')
 const especialista = require('./especialista');
 const { route } = require('./especialista');
 const paciente = require('./paciente');
+const obrassociales = require('./obrassociales');
 
 //index
 routes.get('/', (req, res) => { res.render('index', { title: 'Inicio | Tecnosalud', }) })
@@ -19,7 +20,7 @@ routes.use('/turnos', turnos);
 routes.use('/especialidad', especialidad);
 routes.use('/especialista',especialista);
 routes.use('/paciente',paciente);
-
+routes.use('/obrassociales',obrassociales);
 
 //404
 routes.use(function(req, res, next) { res.status(404).render('notfound', { title: "Pagina no encontrada | Tecnosalud" }) });

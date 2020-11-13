@@ -1,0 +1,25 @@
+{{> head}}
+{{! --------------- }}
+<div class="container pb-5">
+  <header>
+    <h1><i class="fas fa-medkit"></i> Alta de Obra Social</h1>
+    <p class="lead">Complete los datos para agregar una nueva obra social. Para ver las obras sociales existentes <a href="/obrassociales">haz click aqui</a></p>
+  </header>
+  <hr class="my-3">
+  <form id="registroObraSocial">
+    <section>
+      <div class="form-group">
+          <label for="sigla">Sigla de obra social<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="sigla" name="sigla" required>
+      </div>
+      <div class="form-group">
+          <label for="nombre">Nombre completo<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="nombre" name="nombre" required>
+      </div>
+    </section>
+    <p class="small"><span class="text-danger">*</span> Campos requeridos</p>
+    <button type="submit" class="btn btn-success btn-lg btn-block m-auto">Registrar Obra Social</button>
+</form>
+</div>
+{{! --------------- }}
+{{> footer}}
