@@ -1,6 +1,6 @@
 import turnoService from "../services/turnosService.js";
 import { formatHoursTwoDigits } from "../utils.js";
-import { DAYS } from '../constants.js';
+import { DAYS , ESPECIALIDADES_API_URL} from '../constants.js';
 
 const compareHours = ([keya],  [keyb]) => {
   var time1 = parseFloat(keya.replace(':','.'));
@@ -130,7 +130,31 @@ const fetchAndRenderTableByWeek = async (operation) => {
 }
 
 
-
 document.getElementById('especialidadForm').addEventListener('submit', handleClickBuscarTurnos);
 document.getElementById('buscarTurnosAnteriorSemana').addEventListener('click', () => fetchAndRenderTableByWeek((date) => date - 5));
 document.getElementById('buscarTurnosSiguienteSemana').addEventListener('click', () => fetchAndRenderTableByWeek((date) => date + 5));
+
+
+/* Select Especialidades */
+function mostrarEspecialidades(lista) {
+  for (let i of lista) {
+    const place = document.getElementById("selectEspecialidad");
+    const option = document.createElement("option");
+    option.value = i.tipoEspecialidad;
+    option.text = i.tipoEspecialidad;
+
+    place.appendChild(option);
+  }
+}
+
+const getEspecialidades = function () {
+  fetch(ESPECIALIDADES_API_URL)
+    .then((response) => response.json())
+    .then((lista) => {
+      mostrarEspecialidades(lista);
+    });
+};
+
+window.onload = function () {
+  getEspecialidades();
+};

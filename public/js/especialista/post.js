@@ -16,14 +16,25 @@ async function PostEspecialista(especialistajson, calendarioturnos) {
     headers: { "Content-Type": "application/json;charset=UTF-8" },
   })
     .then((response) => response.json())
-    .then((response) => {
-      especialistaId = response.id;
+    .then((data) => {
+      especialistaId = data.id;
 
       calendarioturnos.calendarioTurnos.forEach((element) => {
         element.idEspecialista = especialistaId;
       });
       PostCalendarioTurnos(calendarioturnos);
-    });
+      formespecialista.innerHTML = `<div class="card text-center p-5 my-2">
+      <div class="card-header bg-transparent text-success border-0">
+        <i class="far fa-check-circle display-4 d-block"></i>
+        <h5 class="card-title text-success display-4 d-block">Registro exitoso</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text lead">El Especialista se ha sido registrado con éxito (ID: ${data.id}).</p>
+        <a href="/" class="btn btn-primary m-auto">Ir al menu </a>
+      </div>
+    </div>`;
+    })
+    .catch((error) => console.log("Error: ", error));
 }
 
 const getEspecialidades = function () {
@@ -123,30 +134,15 @@ if (formespecialista) {
     var especialidad = formespecialista.elements.especialidad.value;
 
     var selectdias = formespecialista.querySelectorAll("select");
+    console.log(selectdias);
     var listadias = [];
     selectdias.forEach((element) => {
-      let iddia;
-      if (element.value !== "") {
-        switch (element.value) {
-          case "Lunes":
-            iddia = 1;
-            break;
-          case "Martes":
-            iddia = 2;
-            break;
-          case "Miercoles":
-            iddia = 3;
-            break;
-          case "Jueves":
-            iddia = 4;
-            break;
-          case "Viernes":
-            iddia = 5;
-            break;
-        }
-        listadias.push(iddia);
-      }
+      let iddia = parseInt(element.value);
+
+      listadias.push(iddia);
     });
+
+    console.log(listadias);
 
     var times = formespecialista.querySelectorAll('input[type="time"]');
     var horarios = [];
@@ -192,12 +188,12 @@ btndias.onclick = (e) => {
 <h6 for="dias" class="font-weight-bolder col-form-label-md ">Seleccione los dias:</h6>
 
   <select  class="form-control w-75"  >
-  <option value="">-----</option>
-  <option value="Lunes">Lunes</option>
-  <option value="Martes">Martes</option>
-  <option value="Miercoles">Miercoles</option>
-  <option value="Jueves">Jueves</option>
-      <option value="Viernes">Viernes</option>
+  <option value="">Seleccione un dia</option>
+  <option value=1>Lunes</option>
+  <option value=2>Martes</option>
+  <option value=3>Miercoles</option>
+  <option value=4>Jueves</option>
+  <option value=5>Viernes</option>
   </select>
      </div>      
        <div class="col align-content-center">

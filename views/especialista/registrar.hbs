@@ -12,7 +12,7 @@
             <div class="col-4 m-auto">
                 <label class="font-weight-bolder col-form-label-lg">Seleccione el profesional: </label>
                 <input class="form-control" list="listprofesionales" name="profesional"
-                    id="input-especialista-profesionalid">
+                    id="input-especialista-profesionalid" required>
                 <datalist id="listprofesionales">
 
                 </datalist>
@@ -23,7 +23,7 @@
             <div class="col-4 m-auto">
                 <label class="font-weight-bolder col-form-label-lg">Seleccione especialidad: </label>
                 <input list="listespecialidades" class="form-control" name="especialidad"
-                    id="input-especialista-especialidadid">
+                    id="input-especialista-especialidadid" required>
                 <datalist id="listespecialidades">
 
                 </datalist>
@@ -35,23 +35,23 @@
             <div class="col">
                 <h6 for="dias" class="font-weight-bolder col-form-label-md ">Seleccione los dias:</h6>
 
-                <select class="form-control w-75" name="dias">
+                <select class="form-control w-75" name="dias" required>
                     <option value="">-----</option>
-                    <option value="Lunes">Lunes</option>
-                    <option value="Martes">Martes</option>
-                    <option value="Miercoles">Miercoles</option>
-                    <option value="Jueves">Jueves</option>
-                    <option value="Viernes">Viernes</option>
+                    <option value=1>Lunes</option>
+                    <option value=2>Martes</option>
+                    <option value=3>Miercoles</option>
+                    <option value=4>Jueves</option>
+                    <option value=5>Viernes</option>
                 </select>
             </div>
             <div class="col align-content-center">
                 <label class="font-weight-bolder col-form-label-md" for="appt">Hora de inicio de jornada:</label>
-                <input type="time" class="form-control w-75" name="horarioinicio">
+                <input type="time" class="form-control w-75" name="horarioinicio" required>
             </div>
 
             <div class="col">
                 <label class="font-weight-bolder col-form-label-md" for="appt">Hora de finalización de jornada:</label>
-                <input type="time" class="form-control w-75" name="horariofin">
+                <input type="time" class="form-control w-75" name="horariofin" required>
             </div>
         </div>
 
