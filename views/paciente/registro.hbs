@@ -9,7 +9,7 @@
   <form id="registroPaciente">
     <!-- datos personales -->
     <section>
-      <h5 class="text-muted py-2">Datos personales</h5>
+      <h5 class="text-muted py-2">Datos personales<span class="text-danger">*</span></h5>
       <div class="form-row mb-4">
         <div class="col">
           <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
@@ -58,7 +58,7 @@
     <hr class="my-3">
     <!-- datos contacto -->
     <section>
-      <h5 class="text-muted py-2">Datos de contacto</h5>
+      <h5 class="text-muted py-2">Datos de contacto<span class="text-danger">*</span></h5>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" required>
@@ -69,7 +69,7 @@
       </div>
     </section>
     <section>
-      <h5 class="text-muted py-2">Datos administrativos</h5>
+      <h5 class="text-muted py-2">Datos administrativos <span class="text-danger">*</span></h5>
       <div class="form-group">
         <label for="obrasocial">Obra social</label>
         <select class="form-control" id="obrasocial" name="obrasocial" required>
@@ -81,6 +81,7 @@
         <input type="number" class="form-control" id="usuarioId" name="usuarioId" required>
       </div>
     </section>
+    <p class="small"><span class="text-danger">*</span> Todos los campos de la categoría son requeridos.</p>
     <button type="submit" class="btn btn-success btn-lg m-auto">Registrar Paciente</button>
 </form>
 </div>

@@ -3,7 +3,7 @@
 <div class="container pb-5">
   <header>
     <h1>Crear cuenta</h1>
-    <p class="lead">Por favor, complete los siguientes datos:</p>
+    <p class="lead">Por favor, complete los siguientes datos<span class="text-danger">*</span></p>
   </header>
   <form id="registroPaciente">
     <section>
@@ -35,14 +35,15 @@
         <input type="email" class="form-control" id="email" name="email" required>
       </div>
       <div class="form-group">
-        <label for="telefono">Contraseña nueva</label>
+        <label for="user-password">Contraseña nueva</label>
         <small class="small text-muted">Debe tener un mínimo de 8 caracteres</small>
-        <input type="password" class="form-control" id="telefono" name="telefono" required>
-        <label for="telefono">Confirmar contraseña</label>
+        <input type="password" class="form-control" id="user-password" name="user-password" minlength="8" required>
+        <label for="user-password-2">Confirmar contraseña</label>
         <small class="small text-muted">Vuelva a ingresar la contraseña</small>
-        <input type="password" class="form-control" id="telefono" name="telefono" required>
+        <input type="password" class="form-control" id="telefono" name="user-password-2" minlength="8" required>
       </div>
     </section>
+    <p class="small"><span class="text-danger">*</span> Todos los campos son requeridos</p>
     <button type="submit" class="btn btn-success btn-lg m-auto btn-block">Crear cuenta</button>
 </form>
 </div>
