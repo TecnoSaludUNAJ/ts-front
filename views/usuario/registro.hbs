@@ -6,20 +6,25 @@
     <p class="lead">Por favor, complete los siguientes datos<span class="text-danger">*</span></p>
   </header>
   <form id="registroPaciente">
+    <div id="showAlert"></div>
     <section>
       <div class="form-row mb-4">
         <div class="col">
-          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+          <label for="sexo">Nombre/s<span class="text-danger">*</span> </label>
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombres" required>
         </div>
         <div class="col">
-          <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido" required>
+          <label for="sexo">Apellido/s<span class="text-danger">*</span> </label>
+          <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellidos" required>
         </div>
       </div>
       <div class="form-row mb-4">
         <div class="col">
+          <label for="sexo">DNI<span class="text-danger">*</span> </label>
           <input type="number" class="form-control" id="dni" name="dni" placeholder="DNI" required>
         </div>
         <div class="col">
+          <label for="sexo">Sexo<span class="text-danger">*</span> </label>
           <select class="form-control" id="sexo" name="sexo" required>
             <option selected value="">Seleccionar sexo</option>
             <option>Femenino</option>
@@ -29,21 +34,24 @@
         </div>
       </div>
       <section>
-      <h5 class="text-muted py-2">Datos de contacto</h5>
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">Email<span class="text-danger">*</span> </label>
         <input type="email" class="form-control" id="email" name="email" required>
       </div>
       <div class="form-group">
-        <label for="user-password">Contraseña nueva</label>
+        <label for="telefono">Telefono</label>
+        <input type="tel" class="form-control" id="telefono" name="telefono">
+      </div>
+      <div class="form-group">
+        <label for="password">Contraseña nueva<span class="text-danger">*</span> </label>
         <small class="small text-muted">Debe tener un mínimo de 8 caracteres</small>
-        <input type="password" class="form-control" id="user-password" name="user-password" minlength="8" required>
-        <label for="user-password-2">Confirmar contraseña</label>
+        <input type="password" class="form-control" id="user-password" name="password" minlength="8" required>
+        <label for="password2">Confirmar contraseña<span class="text-danger">*</span> </label>
         <small class="small text-muted">Vuelva a ingresar la contraseña</small>
-        <input type="password" class="form-control" id="telefono" name="user-password-2" minlength="8" required>
+        <input type="password" class="form-control" id="password2" name="password2" minlength="8" required>
       </div>
     </section>
-    <p class="small"><span class="text-danger">*</span> Todos los campos son requeridos</p>
+    <p class="small"><span class="text-danger">*</span> Campos son requeridos</p>
     <button type="submit" class="btn btn-success btn-lg m-auto btn-block">Crear cuenta</button>
 </form>
 </div>
