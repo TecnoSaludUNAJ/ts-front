@@ -49,6 +49,10 @@ export const RECETAS_API_URL = "https://localhost:44306/api/Recetas"
 export const HISTORIA_API_URL = "https://localhost:44306/api/HistoriaClinicas"
 export const ANALISIS_API_URL = "https://localhost:44306/api/Analisis"
 
+// API AUTENTICACION
+export const REGISTROUSER_API_URL = "https://localhost:44309/api/register"
+
+
 
 export class Registros{
   constructor(motivoConsulta,diagnostico,proximaRevision,especialistaId,historiaClinicaId){
