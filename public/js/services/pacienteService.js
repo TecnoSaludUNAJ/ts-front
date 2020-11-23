@@ -6,6 +6,12 @@ const getPacientebyID = (id) => {
     .catch((err) => console.log("ERROR: " + err));
 };
 
+const getPacientebyUserId = (id) => {
+  return fetch(`${PACIENTES_API_URL}/userId/${id}`)
+    .then((response) => response.json())
+    .catch((err) => console.log("ERROR: " + err));
+};
+
 const getAllPacientes = () => {
   return fetch(PACIENTES_API_URL)
     .then((response) => response.json())
@@ -83,4 +89,4 @@ class ObraSocialDTO {
 }
 
 
-export { getPacientebyID, getAllPacientes, postPaciente, getObrasSociales, postObraSocial, PacienteDTO, ObraSocialDTO };
+export { getPacientebyID, getPacientebyUserId, getAllPacientes, postPaciente, getObrasSociales, postObraSocial, PacienteDTO, ObraSocialDTO };

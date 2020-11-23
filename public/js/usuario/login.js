@@ -1,3 +1,6 @@
+import {postLoginUsuario, LoginDTO} from '../services/autenticacionService.js';
+import {getPacientebyUserId} from '../services/pacienteService.js';
+
 const logInForm = document.getElementById("loginForm");
 
 if(logInForm) {
@@ -10,9 +13,41 @@ if(logInForm) {
         if(password === "")
             alert("Contraseña vacia")
         else{
-            // llamar a servicio de autenticacion
-            // ejemplo ahora con DNI
-            alert(`DNI: ${dni} // contraseña: ${password}`)
+            logInUsuario(dni, password)
         }
     }
 }
+
+const logInUsuario = async (dni, password) => {
+    const response = await postLoginUsuario(new LoginDTO(dni, password));
+    console.log(response)
+    response
+      ? manageResponseUsuario(response)
+      : alert("Usuario o contraseña ingresados no validos.");
+};
+
+const manageResponseUsuario = async (responseUsuario) => {
+    const ROL_PROFESIONAL = 2;
+    const ROL_PACIENTE = 3;
+    let sessionLogIn = responseUsuario;
+    // cargar tipo de usuario (segun rol)
+    switch(responseUsuario.usuario.rolId) {
+        case ROL_PROFESIONAL:
+            alert("Es un profesional")
+            break;
+        case ROL_PACIENTE:
+            let paciente = await getPacientebyUserId(responseUsuario.usuario.id);
+            if(paciente){
+                // cargo datos en la respuesta
+                sessionLogIn.paciente = paciente
+            }
+            else{
+                // no existe, redirecciono a que complete los datos.
+                localStorage.setItem("session", JSON.stringify(sessionLogIn));
+                window.location.assign("/paciente/registrar");
+            }
+            break;
+    }
+    localStorage.setItem("session", JSON.stringify(sessionLogIn));
+    window.location.assign("/");
+};

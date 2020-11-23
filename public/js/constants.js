@@ -50,9 +50,14 @@ export const HISTORIA_API_URL = "https://localhost:44306/api/HistoriaClinicas"
 export const ANALISIS_API_URL = "https://localhost:44306/api/Analisis"
 
 // API AUTENTICACION
-export const REGISTROUSER_API_URL = "https://localhost:44309/api/register"
+export const AUTENTICATION_API_BASE = "https://localhost:44309/api"
+export const REGISTROUSER_API_URL = AUTENTICATION_API_BASE + "/register"
+export const LOGIN_API_URL = AUTENTICATION_API_BASE + "/login"
 
-
+// ROLES
+export const ROL_PROFESIONAL = 2;
+export const ROL_PACIENTE = 3;
+export const ROL_ADMIN = 1;
 
 export class Registros{
   constructor(motivoConsulta,diagnostico,proximaRevision,especialistaId,historiaClinicaId){
