@@ -1,4 +1,16 @@
-import {REGISTROUSER_API_URL} from '../constants.js';
+import {REGISTROUSER_API_URL, LOGIN_API_URL} from '../constants.js';
+
+const postLoginUsuario = (loginDTO) => {
+  return fetch(LOGIN_API_URL, {
+    method: "POST",
+    body: JSON.stringify(loginDTO),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .catch((err) => console.error(err));
+};
 
 const postRegisterUsuario = (usuario) => {
   return fetch(REGISTROUSER_API_URL, {
@@ -24,4 +36,11 @@ class UsuarioDTO {
   }
 }
 
-export { postRegisterUsuario, UsuarioDTO };
+class LoginDTO {
+  constructor(dni, password){
+    this.dni = dni;
+    this.password = password;
+  }
+}
+
+export { postLoginUsuario, LoginDTO, postRegisterUsuario, UsuarioDTO };
