@@ -1,5 +1,7 @@
 import {postPaciente, getObrasSociales, PacienteDTO} from '../services/pacienteService.js'
 import {paises} from './paises.js'
+import {session, loadPacienteIntoSession} from '../usuario/session.js'
+import { ROL_PACIENTE} from '../constants.js'
 
 const registroForm = document.getElementById("registroPaciente");
 const obraSocialSelect = document.getElementById("obrasocial");
@@ -49,7 +51,7 @@ const registrarCliente = async () => {
   // data from form
   let nombre = $("#nombre").val();
   let apellido = $("#apellido").val();
-  let dni = parseInt($("#dni").val() );
+  let dni = $("#dni").val();
   let sexo = $("#sexo").val();
   let nacionalidad = $("#nacionalidad").val();
   let estadocivil = $("#estadocivil").val();
@@ -58,11 +60,11 @@ const registrarCliente = async () => {
   let email = $("#email").val();
   let telefono = $("#telefono").val();
   let obrasocial = parseInt($("#obrasocial").val());
-  let usuarioId = parseInt($("#usuarioId").val());
+  let usuarioId = session.usuario.id;
 
   // validate numbers
-  if(isNaN(dni) || isNaN(obrasocial) || isNaN(usuarioId)){
-    alert("Los campos DNI y UsuarioID deben ser numéricos.")
+  if(isNaN(obrasocial) || isNaN(usuarioId)){
+    alert("Los campos deben ser numéricos.")
   }else{
     let paciente = new PacienteDTO(
       nombre,
@@ -97,6 +99,8 @@ const managePacientePostResponse = (pacientePostresponse) => {
       <p class="card-text lead">El paciente ha sido registrado correctamente.</p>
     </div>
   </div>`
+    // cargarlo en session
+    loadPacienteIntoSession()
   } else {
     pacientePostresponse.message = pacientePostresponse.message || "Ha ocurrido un error.";
     registroForm.innerHTML+= `<div class="alert alert-danger p-2 my-2" role="alert">
