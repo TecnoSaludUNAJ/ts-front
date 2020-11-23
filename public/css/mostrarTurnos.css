@@ -1,0 +1,80 @@
+.blocks{
+    display: grid; 
+    grid-template-rows: auto; 
+    gap: 0.5em;
+}
+.turno{
+    padding-bottom: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.turno .tituloTurno{
+    color: white;
+    text-align: left; 
+    padding:10px;
+}
+.turno .datosTurno{
+    padding-left: 10px;
+    padding-right: 20px;
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+}
+.turno .datosTurno .column{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.turno .datosTurno div{
+    font-size: small;
+}
+.turno .datosTurno p{
+    display: block;
+    border-bottom:2px solid #007bff;
+    width: fit-content;
+    height: 26px;
+    border-width: 0 0 2px 0;
+    font-size: 18px;
+    line-height: 26px;
+}
+.paciente{
+    padding-bottom: 10px; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.paciente .pacienteIcons{
+    display: grid; 
+    grid-template-columns: 20% 80%;
+}
+.paciente .pacienteIcons .iconsContainer{
+    margin: 10px; 
+    width: 180px; 
+    height: 180px;
+}
+.paciente .pacienteIcons .iconsContainer .bi{
+    padding: 5px;
+    border: 5px solid #007bff;
+    border-radius: 100px;
+    border-top-left-radius: 100px;
+}
+.paciente .pacienteIcons .button{
+    margin: 20px;
+}
+.paciente .tituloPaciente{
+    color: white;
+    text-align: left; 
+    padding:10px;
+}
+.paciente .datosPaciente{
+    padding-left: 10px;
+    padding-right: 20px;
+    display: block;   
+}
+.paciente .datosPaciente div {
+    font-size: small;
+}
+.paciente .datosPaciente p{
+    display: block;
+    border-bottom:2px solid #007bff;
+    width: fit-content;
+    height: 26px;
+    border-width: 0 0 2px 0;
+    font-size: 18px;
+    line-height: 26px;
+}

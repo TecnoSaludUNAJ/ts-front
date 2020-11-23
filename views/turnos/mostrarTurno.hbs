@@ -1,47 +1,66 @@
 {{> head}}
 {{! --------------- }}
-<div class="container" >
+<div class="container">
     <h1 style="text-align: center;">Información de Turno</h1><br>
-    <div style="display: grid; grid-template-columns: 40% 60%; gap: 0.5em;">
-        <div class="turno border-bottom border-right border-primary"
-            style="padding: 1em; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" ;>
-            <h5 class="card-title">Datos de turno</h5>
-            <ul style="display: grid; grid-template-rows: repeat(9, 30px); grid-template-columns: 40% 60%;">
-                <li>Especialista: </li>
-                <p class="especialista"></p>
-                <li>Fecha: </li>
-                <p class="fecha"></p>
-                <li>Hora de inicio: </li>
-                <p class="horaInicio"></p>
-            </ul>
+    <div class="blocks">
+        <div class="turno border-bottom border-right border-primary rounded-lg" ;>
+            <h5 class="tituloTurno bg-primary rounded-top">Datos de turno</h5>
+            <div class="datosTurno">
+                <div class="column">
+                    <div>Especialista: </div>
+                    <p class="especialista">Doctor Who</p>
+                </div>
+                <div class="column">
+                    <div>Fecha: </div>
+                    <p class="fecha">22-11-2020</p>
+                </div>
+                <div class="column">
+                    <div>Hora de inicio: </div>
+                    <p class="horaInicio">15:20</p>
+                </div>
+            </div>
         </div>
 
-        <div class="paciente border-bottom border-right border-primary"
-            style="padding: 1em; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <h5>Datos del paciente</h5>
-            <ul style="display: grid; grid-template-rows: repeat(9, 30px); grid-template-columns: 40% 60%;">
-                <li>Nombre: </li>
-                <p class="nombre"></p>
-                <li>Apellido: </li>
-                <p class="apellido"></p>
-                <li>Fecha de Nacimiento: </li>
-                <p class="fechaNacimiento"></p>
-                <li>Domicilio: </li>
-                <p class="domicilio"></p>
-                <li>Email: </li>
-                <p class="email"></p>
-                <li>Telefono: </li>
-                <p class="telefono"></p>
-                <li>Estado civil: </li>
-                <p class="estadoCivil"></p>
-                <li>Nacionalidad: </li>
-                <p class="nacionalidad"></p>
-                <li>Numero de Obra Social: </li>
-                <p class="obraSocial"></p>
-            </ul>
-            <div>
-                <a href="/historiaClinica/historia" class="rounded-pill btn btn-primary">Ver Historia Clinica</a>
+        <div class="paciente border-bottom border-right border-primary rounded-lg">
+            <h5 class="tituloPaciente bg-primary rounded-top">Datos del paciente</h5>
+            <div class="pacienteIcons">
+                <div class="iconsContainer">
+                    <svg width="175px" height="175px" viewBox="0 0 16 16" class="bi bi-person-circle" fill="#007bff"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
+                        <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                        <path fill-rule="evenodd"
+                            d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
+                    </svg>
+                    <div class="button">
+                        <a href="/historiaClinica/historia" class="rounded-pill btn btn-primary">Ver
+                            Historia Clinica</a>
+                    </div>
+                </div>
+                <div class="datosPaciente">
+                    <div>Nombre: </div>
+                    <p class="nombre">Juan</p>
+                    <div>Apellido: </div>
+                    <p class="apellido">Espinosa</p>
+                    <div>Fecha de Nacimiento: </div>
+                    <p class="fechaNacimiento"> 15-10-1994</p>
+                    <div>Domicilio: </div>
+                    <p class="domicilio">posadas</p>
+                    <div>Email: </div>
+                    <p class="email">juanjavierzerofour@gmail.com</p>
+                    <div>Telefono: </div>
+                    <p class="telefono">45266548613</p>
+                    <div>Estado civil: </div>
+                    <p class="estadoCivil">soltero</p>
+                    <div>Nacionalidad: </div>
+                    <p class="nacionalidad">argentina</p>
+                    <div>Numero de Obra Social: </div>
+                    <p class="obraSocial">1111654</p>
+
+                </div>
             </div>
+
         </div>
     </div>
 </div>
