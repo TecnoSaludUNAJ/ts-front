@@ -134,15 +134,12 @@ if (formespecialista) {
     var especialidad = formespecialista.elements.especialidad.value;
 
     var selectdias = formespecialista.querySelectorAll("select");
-    console.log(selectdias);
     var listadias = [];
     selectdias.forEach((element) => {
       let iddia = parseInt(element.value);
 
       listadias.push(iddia);
     });
-
-    console.log(listadias);
 
     var times = formespecialista.querySelectorAll('input[type="time"]');
     var horarios = [];

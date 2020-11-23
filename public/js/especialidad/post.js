@@ -10,7 +10,6 @@ async function PostEspecialidad(especialidadjson) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       registroForm.innerHTML = `<div class="card text-center p-5 my-2">
       <div class="card-header bg-transparent text-success border-0">
         <i class="far fa-check-circle display-4 d-block"></i>

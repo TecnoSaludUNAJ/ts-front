@@ -1,4 +1,4 @@
-import { PROFESIONALES_API_URL } from "../constants.js";
+import { PROFESIONALES_API_URL, REGISTROUSER_API_URL } from "../constants.js";
 
 class Profesional {
   constructor(
@@ -10,7 +10,8 @@ class Profesional {
     telefono,
     email,
     domicilio,
-    sexo
+    sexo,
+    usuarioId
   ) {
     this.nombre = nombre;
     this.apellido = apellido;
@@ -21,13 +22,14 @@ class Profesional {
     this.email = email;
     this.domicilio = domicilio;
     this.sexo = sexo;
+    this.usuarioId = usuarioId;
   }
 }
 
 const formProfesional = document.getElementById("formProfesional");
 
-function PostProfesional(profesionaljson) {
-  fetch(PROFESIONALES_API_URL, {
+async function PostProfesional(profesionaljson) {
+  await fetch(PROFESIONALES_API_URL, {
     method: "POST",
     body: profesionaljson,
     headers: {
@@ -42,12 +44,30 @@ function PostProfesional(profesionaljson) {
         <h5 class="card-title text-success display-4 d-block">Registro exitoso</h5>
       </div>
       <div class="card-body">
-        <p class="card-text lead">El Profesional ha sido registrado con éxito (ID: ${data.id}).</p>
+        <p class="card-text lead">El Profesional ha sido registrado con éxito.</p>
         <p class="card-text text-muted">Nombre: ${data.nombre}</p>
         <p class="card-text text-muted">Matricula: ${data.matricula}</p>
         <a href="/" class="btn btn-primary m-auto">Ir al menu </a>
       </div>
     </div>`;
+    })
+    .catch((err) => console.log("Error:", err));
+}
+
+async function postAutenticacion(usuariojson, profesional) {
+  await fetch(REGISTROUSER_API_URL + "/profesional", {
+    method: "POST",
+    body: usuariojson,
+    headers: {
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      profesional.usuarioId = data.id;
+
+      var profesionaljson = JSON.stringify(profesional);
+      PostProfesional(profesionaljson);
     })
     .catch((err) => console.log("Error:", err));
 }
@@ -69,7 +89,7 @@ formProfesional.addEventListener("submit", function (e) {
   } else {
     sexo = checkbox[1].value;
   }
-
+  const usuarioId = 0;
   var profesional = new Profesional(
     nombre,
     apellido,
@@ -79,9 +99,19 @@ formProfesional.addEventListener("submit", function (e) {
     telefono,
     email,
     domicilio,
-    sexo
+    sexo,
+    usuarioId
   );
-  var profesionaljson = JSON.stringify(profesional);
 
-  PostProfesional(profesionaljson);
+  var usuario = {
+    nombres: profesional.nombre,
+    apellidos: profesional.apellido,
+    dni: profesional.dni,
+    sexo: profesional.sexo,
+    email: profesional.email,
+    telefono: profesional.telefono,
+    password: profesional.nombre, //CAMBIAR LOGICA DE PASSWORD
+  };
+  var usuariojson = JSON.stringify(usuario);
+  postAutenticacion(usuariojson, profesional);
 });
