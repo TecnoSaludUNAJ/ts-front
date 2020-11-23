@@ -1,4 +1,5 @@
 import {ROL_ADMIN, ROL_PACIENTE, ROL_PROFESIONAL} from './constants.js'
+import {session, logOut} from './usuario/session.js'
 // todo el js comun en todo el sitio
 
 
@@ -40,12 +41,7 @@ $(function(){
 });
 
 // session 
-const session = localStorage.getItem("session")
-  ? JSON.parse(localStorage.getItem("session"))
-  : null;
-
 if(session){
-  console.log(session);
   switch(session.usuario.rolId){
     case ROL_PACIENTE:
       if(!session.paciente){
@@ -62,10 +58,5 @@ if(session){
 }
 
 // logoutAction
-
-const logOut = () => {
-  localStorage.removeItem("session");
-  window.location.assign("/");
-}
 let logOutButton = document.getElementById("logOutbtn");
 logOutButton ? logOutButton.addEventListener("click", logOut) : "";
