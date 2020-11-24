@@ -1,5 +1,5 @@
 import {ROL_ADMIN, ROL_PACIENTE, ROL_PROFESIONAL} from './constants.js'
-import {session, logOut} from './usuario/session.js'
+import {session, logOut, sessionMenu} from './usuario/session.js'
 // todo el js comun en todo el sitio
 
 
@@ -42,6 +42,7 @@ $(function(){
 
 // session 
 if(session){
+  sessionMenu();
   switch(session.usuario.rolId){
     case ROL_PACIENTE:
       if(!session.paciente){
