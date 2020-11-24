@@ -1,5 +1,5 @@
 import {ROL_ADMIN, ROL_PACIENTE, ROL_PROFESIONAL} from './constants.js'
-import {session, logOut, sessionMenu} from './usuario/session.js'
+import {session, logOut, sessionUserMenu} from './usuario/session.js'
 // todo el js comun en todo el sitio
 
 
@@ -42,7 +42,7 @@ $(function(){
 
 // session 
 if(session){
-  sessionMenu();
+  sessionUserMenu();
   switch(session.usuario.rolId){
     case ROL_PACIENTE:
       if(!session.paciente){
@@ -51,13 +51,12 @@ if(session){
           $("#myModal").modal({
             backdrop:'static',keyboard:false, show:true
           });
-          
         }
       }
 
   }
 }
 
-// logoutAction
+// logout btn
 let logOutButton = document.getElementById("logOutbtn");
 logOutButton ? logOutButton.addEventListener("click", logOut) : "";

@@ -1,7 +1,12 @@
 body {
-  padding-top: 60px!important;
+  padding-top: 65px!important;
   overflow-x: hidden;
 }
+
+.navbar {
+  min-height: 65px;
+}
+
 
 #wrapper {
   padding-left: 0;
@@ -88,4 +93,28 @@ body {
   letter-spacing: .03125rem;
   font-size: 70%;
   padding: 1em
+}
+
+/* navbar user */
+.user-info {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: clip;
+  align-items: center;
+  align-content: center;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.user-info .user-fullname {
+  display: block;
+}
+.user-info .user-role {
+  display: block;
+  font-size: 0.75em;
+  
+}
+
+.user-av {
+  display: inline-block;
+  font-size: 32px;
 }

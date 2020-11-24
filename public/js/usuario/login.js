@@ -1,5 +1,7 @@
 import {postLoginUsuario, LoginDTO} from '../services/autenticacionService.js';
-import {loadPacienteIntoSession} from './session.js'
+import { getPacientebyUserId } from "../services/pacienteService.js";
+
+
 const logInForm = document.getElementById("loginForm");
 
 if(logInForm) {
@@ -35,7 +37,13 @@ const manageResponseUsuario = async (responseUsuario) => {
             alert("Es un profesional")
             break;
         case ROL_PACIENTE:
-            loadPacienteIntoSession();
+            let paciente = await getPacientebyUserId(sessionLogIn.usuario.id);
+            if (paciente) {
+              sessionLogIn.paciente = paciente;
+            }else{
+
+              window.location.assign("/paciente/registrar");
+            }
             break;
     }
     localStorage.setItem("session", JSON.stringify(sessionLogIn));

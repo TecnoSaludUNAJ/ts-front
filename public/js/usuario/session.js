@@ -1,4 +1,3 @@
-import { getPacientebyUserId } from "../services/pacienteService.js";
 import { ROL_ADMIN, ROL_PACIENTE, ROL_PROFESIONAL } from "../constants.js";
 
 export const session = localStorage.getItem("session")
@@ -10,42 +9,28 @@ export const logOut = () => {
   window.location.assign("/");
 };
 
-export const loadPacienteIntoSession = async () => {
-  let paciente = await getPacientebyUserId(session.usuario.id);
-  if (paciente) {
-    // cargo datos en la respuesta
-    session.paciente = paciente;
-    localStorage.setItem("session", JSON.stringify(session));
-  } else {
-    // no existe, redirecciono a que complete los datos.
-    localStorage.setItem("session", JSON.stringify(sessionLogIn));
-    window.location.assign("/paciente/registrar");
-  }
-};
-
-export const sessionMenu = () => {
+export const sessionUserMenu = () => {
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
   const sessionNav = document.getElementById("sessionNav");
   sessionNav.innerHTML = `
-  <ul class="nav nav-user">
-    <li class="nav-item">
-      <a class="nav-link">
-      <div class="row">
-        <div class="col-4">
-          <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" width="50" height="50" class="rounded-circle" alt="Avatar">
-        </div>
-        <div class="col-8">
-          <div class="text-truncate">
-            ${session.usuario.nombres} ${session.usuario.apellidos}
-          </div>
-          <small class="text-muted">${rolString(session.usuario.rolId)}</small>
-        </div>
-      </div>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/usuario/logout" ><i class="fas fa-sign-out-alt"></i></a>
-    </li>
-  </ul>
+  <li class="nav-item border-right pr-2">
+      <span class="user-info align-middle pr-1">
+        <span class="user-fullname text-capitalize">
+          ${session.usuario.nombres} ${session.usuario.apellidos}
+        </span>
+        <span class="user-role text-muted small">
+        ${rolString(session.usuario.rolId)}
+        </span>
+      </span>
+      <span class="user-av align-middle">
+      <i class="fas fa-user-circle text-muted"></i>
+      </span>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="/usuario/logout" data-toggle="tooltip" data-placement="bottom" title="Cerrar sesión"><i class="fas fa-sign-out-alt"></i></a>
+  </li>
   `;
 };
 
