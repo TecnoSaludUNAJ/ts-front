@@ -44,3 +44,16 @@ const rolString = (num) => {
       return "Paciente";
   }
 };
+
+export const loadPacienteIntoSession = async () => {
+  let paciente = await getPacientebyUserId(session.usuario.id);
+  if (paciente) {
+    // cargo datos en la respuesta
+    session.paciente = paciente;
+    localStorage.setItem("session", JSON.stringify(session));
+  } else {
+    // no existe, redirecciono a que complete los datos.
+    localStorage.setItem("session", JSON.stringify(sessionLogIn));
+    window.location.assign("/paciente/registrar");
+  }
+};
