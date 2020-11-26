@@ -19,26 +19,37 @@ function mostrarDatos(historialclinico) {
   const container=document.getElementById("containerhistoria");
   historialclinico.forEach(historial => {
    
+    if (historial.descripcionReceta===null) {
+      historial.descripcionReceta= "Sin información";
+    }
+    if (historial.descripcionAnalisis===null) {
+      historial.descripcionAnalisis= "Sin información";
+    }
+
     container.innerHTML+=`
     <div class='card mb-3 border-primary'>
         <div class="card-body">
-        <span id="motivo" class="  d-block border-bottom">Motivo de la consulta:  ${historial.motivoConsulta}
+        <span  class="  d-block border-bottom">Fecha de la consulta:  ${historial.fechaRegistro}
+
+        </span><br>
+
+        <span class="  d-block border-bottom">Motivo de la consulta:  ${historial.motivoConsulta}
             
         </span><br>
 
-        <span id="diagnostico" class='  d-block border-bottom'>Diagnostico: ${historial.diagnostico}
+        <span  class='  d-block border-bottom'>Diagnostico: ${historial.diagnostico}
             
         </span><br>
 
-        <span id="analisis" class='d-block border-bottom'>Detalle de los analisis: ${historial.descripcionAnalisis}
+        <span  class='d-block border-bottom'>Detalle de los analisis: ${historial.descripcionAnalisis}
             
         </span><br>
 
-        <span id="receta" class='d-block border-bottom'>Detalle de recetas: ${historial.descripcionReceta}
+        <span class='d-block border-bottom'>Detalle de recetas: ${historial.descripcionReceta}
             
         </span><br>
 
-        <span id="proximarevision" class='  d-block border-bottom'>Proxima revision: ${historial.proximaRevision}
+        <span  class='  d-block border-bottom'>Proxima revision: ${historial.proximaRevision}
             
         </span><br>
         
