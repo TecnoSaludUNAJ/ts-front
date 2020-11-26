@@ -19,6 +19,13 @@ function mostrarDatos(historialclinico) {
   const container=document.getElementById("containerhistoria");
   historialclinico.forEach(historial => {
    
+    if (historial.descripcionReceta===null) {
+      historial.descripcionReceta= "Sin información";
+    }
+    if (historial.descripcionAnalisis===null) {
+      historial.descripcionAnalisis= "Sin información";
+    }
+
     container.innerHTML+=`
     <div class='card mb-3 border-primary'>
         <div class="card-body">
