@@ -1,6 +1,7 @@
 import turnoService from "../services/turnosService.js";
 import { formatHoursTwoDigits } from "../utils.js";
 import { DAYS , ESPECIALIDADES_API_URL} from '../constants.js';
+import { session } from "../usuario/session.js";
 
 const compareHours = ([keya],  [keyb]) => {
   var time1 = parseFloat(keya.replace(':','.'));
@@ -70,7 +71,7 @@ const showTurnosInTable = (turnos) => {
         <button
           type="button"
           class="btn btn-success"
-          onclick="reservar('${column.fecha}', '${column.horaInicio}',  ${column.idEspecialista})"
+          onclick="reservar('${column.fecha}', '${column.horaInicio}',  ${column.idEspecialista}, ${column.idEspecialidad})"
         >
           Reservar
         </button>
@@ -81,13 +82,13 @@ const showTurnosInTable = (turnos) => {
   document.getElementById("seccionTurnos").classList.remove("d-none");
 };
 
-window.reservar = (fecha, horaInicio, idEspecialista) => {
+window.reservar = (fecha, horaInicio, idEspecialista, idEspecialidad) => {
   const body = {
     fecha,
     horaInicio,
     idEspecialista,
-    // #TODO: Use localstorage for get the pacienteId after of implement autentication
-    idPaciente: 1,
+    idEspecialidad,
+    idPaciente: session.paciente.paciente_Id,
   };
 
   return turnoService.PostTurnos(body)
@@ -140,7 +141,7 @@ function mostrarEspecialidades(lista) {
   for (let i of lista) {
     const place = document.getElementById("selectEspecialidad");
     const option = document.createElement("option");
-    option.value = i.tipoEspecialidad;
+    option.value = i.id;
     option.text = i.tipoEspecialidad;
 
     place.appendChild(option);
