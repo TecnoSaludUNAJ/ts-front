@@ -25,8 +25,8 @@ const registrarObraSocial = async () => {
     alert("Los campos no pueden estar vacíos.")
   }else{
     let obraSocial = new ObraSocialDTO(
-      sigla,
-      nombre
+      nombre,
+      sigla
     );
     let obraSocialPost = await postObraSocial(obraSocial);
     obraSocialPost
