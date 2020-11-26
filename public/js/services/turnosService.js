@@ -2,7 +2,7 @@ import { TURNOS_API_URL, TURNOS_DISPONIBLES_API_URL } from "../constants.js"
 import { session } from "../usuario/session.js";
 
 const GetTurnos = () => {
-  return fetch(TURNOS_API_URL + "?pacienteId=" + session.paciente.paciente_Id)
+  return fetch(TURNOS_API_URL + "?IdPaciente=" + session.paciente.paciente_Id)
     .then(response => response.json())
     .catch(err => console.error('ERROR: ' + err))
 };

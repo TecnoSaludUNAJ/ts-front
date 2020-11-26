@@ -5,12 +5,22 @@ const getEspecialista = (especialistaId) => {
   const especialistas = [{
     idEspecialista: 1,
     nom_profesional: "Dr Oscar Mendez",
-    nom_especialidad: "Clínico",
+    nom_especialidad: "Médico",
   },
   {
     idEspecialista: 2,
     nom_profesional: "Dra Lucia Ramos",
+    nom_especialidad: "Clínico",
+  },
+  {
+    idEspecialista: 3,
+    nom_profesional: "Dra Martin Morales",
     nom_especialidad: "Traumatología",
+  },
+  {
+    idEspecialista: 4,
+    nom_profesional: "Dr Carlos Suarez",
+    nom_especialidad: "Clínico",
   }];
 
   return especialistas.find((especialista) => especialista.idEspecialista === especialistaId);
