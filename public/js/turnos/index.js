@@ -140,7 +140,7 @@ function mostrarEspecialidades(lista) {
   for (let i of lista) {
     const place = document.getElementById("selectEspecialidad");
     const option = document.createElement("option");
-    option.value = i.tipoEspecialidad;
+    option.value = i.id;
     option.text = i.tipoEspecialidad;
 
     place.appendChild(option);

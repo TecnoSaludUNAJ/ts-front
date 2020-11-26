@@ -21,6 +21,7 @@ async function PostEspecialista(especialistajson, calendarioturnos) {
 
       calendarioturnos.calendarioTurnos.forEach((element) => {
         element.idEspecialista = especialistaId;
+        element.idEspecialidad = data.especialidadId;
       });
       PostCalendarioTurnos(calendarioturnos);
       formespecialista.innerHTML = `<div class="card text-center p-5 my-2">

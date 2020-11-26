@@ -3,12 +3,12 @@ import { formatHoursTwoDigits } from "../utils.js";
 
 const getEspecialista = (especialistaId) => {
   const especialistas = [{
-    idEspecialista: 10,
+    idEspecialista: 1,
     nom_profesional: "Dr Oscar Mendez",
     nom_especialidad: "Clínico",
   },
   {
-    idEspecialista: 11,
+    idEspecialista: 2,
     nom_profesional: "Dra Lucia Ramos",
     nom_especialidad: "Traumatología",
   }];
