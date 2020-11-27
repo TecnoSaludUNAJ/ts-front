@@ -26,25 +26,31 @@ const modalCompleteRegister = (nombres, apellidos) => {
 };
 
 // sidebar
-$(function () {
-  $("#menu-toggle").click(function (e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-  });
 
-  $(window).resize(function (e) {
-    if ($(window).width() <= 768) {
-      $("#wrapper").removeClass("toggled");
-    } else {
-      $("#wrapper").addClass("toggled");
-    }
-  });
-});
 
 // session
 if (session) {
   // set navbar
   sessionUserMenu();
+  // show sidebar
+  $(function () {
+    // change wrapper and show button
+    $("#wrapper").addClass("toggled");
+    $("#menu-toggle").removeClass("d-none");
+    // 
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  
+    $(window).resize(function (e) {
+      if ($(window).width() <= 768) {
+        $("#wrapper").removeClass("toggled");
+      } else {
+        $("#wrapper").addClass("toggled");
+      }
+    });
+  });
   // load sidebar
   const sidebar = document.getElementById("sidebar-wrapper");
   sidebar.innerHTML = menuUsuario(session.usuario.rolId);

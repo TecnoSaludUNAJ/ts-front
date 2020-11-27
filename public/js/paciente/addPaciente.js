@@ -1,6 +1,6 @@
 import {postPaciente, getObrasSociales, PacienteDTO} from '../services/pacienteService.js'
 import {paises} from './paises.js'
-import {session, loadPacienteIntoSession} from '../usuario/session.js'
+import {session} from '../usuario/session.js'
 import { ROL_PACIENTE} from '../constants.js'
 import { getPacientebyUserId } from "../services/pacienteService.js";
 
@@ -88,6 +88,19 @@ const registrarCliente = async () => {
       : console.log("El servicio de registro no se encuentra disponible actualmente.");
   }
 }
+
+const loadPacienteIntoSession = async () => {
+  let paciente = await getPacientebyUserId(session.usuario.id);
+  if (paciente) {
+    // cargo datos en la respuesta
+    session.paciente = paciente;
+    localStorage.setItem("session", JSON.stringify(session));
+  } else {
+    // no existe, redirecciono a que complete los datos.
+    localStorage.setItem("session", JSON.stringify(sessionLogIn));
+    window.location.assign("/paciente/registrar");
+  }
+};
 
 const managePacientePostResponse = (pacientePostresponse) => {
   if (pacientePostresponse.paciente_Id) {

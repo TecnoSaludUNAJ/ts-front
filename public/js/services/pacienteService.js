@@ -83,8 +83,8 @@ class ObraSocialDTO {
       nombre,
       sigla
     ) {
-    this.obraSocial_Sigla = sigla;
     this.obraSocial_Nombre = nombre;
+    this.obraSocial_Sigla = sigla;
   }
 }
 
