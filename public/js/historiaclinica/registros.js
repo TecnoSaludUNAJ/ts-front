@@ -53,15 +53,15 @@ function mostrarDatos(paciente) {
   } else {
     if (labelnotfound.hidden) {
       labelnotfound.removeAttribute("hidden");
-      nombre.innerHTML = ``;
-      apellido.innerHTML = ``;
-      fechanacimiento.innerHTML = ``;
-      domicilio.innerHTML = ``;
-      email.innerHTML = ``;
-      telefono.innerHTML = ``;
-      estadocivil.innerHTML = ``;
-      nacionalidad.innerHTML = ``;
-      obrasocial.innerHTML = ``;
+      nombre.innerHTML = `--------`;
+      apellido.innerHTML = `--------`;
+      fechanacimiento.innerHTML = `------------------`;
+      domicilio.innerHTML = `---------`;
+      email.innerHTML = `------`;
+      telefono.innerHTML = `--------`;
+      estadocivil.innerHTML = `-----------`;
+      nacionalidad.innerHTML = `------------`;
+      obrasocial.innerHTML = `--------------------`;
     } else {
       labelnotfound.setAttribute("hidden");
     }
