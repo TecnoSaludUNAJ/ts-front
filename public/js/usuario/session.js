@@ -6,7 +6,7 @@ export const session = localStorage.getItem("session")
 
 export const logOut = () => {
   localStorage.removeItem("session");
-  window.location.assign("/");
+  window.location.href = window.origin;
 };
 
 export const sessionUserMenu = () => {
