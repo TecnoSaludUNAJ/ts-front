@@ -24,25 +24,44 @@ async function getPacienteByDni(pacientedni) {
 function mostrarDatos(paciente) {
   const nombre = document.querySelector("#nombre");
   const apellido = document.querySelector("#apellido");
-  const dni = document.querySelector("#dni");
   const labelnotfound = document.getElementById("label-notfound");
-  const btnhistorial= document.getElementById("mostrarHistorial");
-
+  const btnhistorial = document.getElementById("btnhistorial");
+  const fechanacimiento = document.querySelector("#fechanacimiento");
+  const domicilio = document.querySelector("#domicilio");
+  const email = document.querySelector("#email");
+  const telefono = document.querySelector("#telefono");
+  const estadocivil = document.querySelector("#estadocivil");
+  const nacionalidad = document.querySelector("#nacionalidad");
+  const obrasocial = document.querySelector("#obrasocial");
 
   if (paciente.nombre !== undefined) {
     labelnotfound.setAttribute("hidden", true);
-    nombre.innerHTML = `Nombre: ${paciente.nombre}`;
-    apellido.innerHTML = `Apellido: ${paciente.apellido}`;
-    dni.innerHTML = `Numero de documento: ${paciente.dni}`;
-    btnhistorial.setAttribute("href","/historiaClinica/historia"+`?pacienteid=${paciente.paciente_Id}`);
+    nombre.innerHTML = `${paciente.nombre}`;
+    apellido.innerHTML = ` ${paciente.apellido}`;
+    fechanacimiento.innerHTML = `${paciente.fecha_Nacim}`;
+    domicilio.innerHTML = `${paciente.domicilio}`;
+    email.innerHTML = `${paciente.email}`;
+    telefono.innerHTML = `${paciente.telefono}`;
+    estadocivil.innerHTML = `${paciente.estado_Civil}`;
+    nacionalidad.innerHTML = `${paciente.nacionalidad}`;
+    obrasocial.innerHTML = `${paciente.obraSocial_Id}`;
 
- 
+    btnhistorial.setAttribute(
+      "href",
+      "/historiaClinica/historia" + `?pacienteid=${paciente.paciente_Id}`
+    );
   } else {
     if (labelnotfound.hidden) {
       labelnotfound.removeAttribute("hidden");
-      nombre.innerHTML = `Nombre: No se ha encontrado`;
-      apellido.innerHTML = `Apellido: No se ha encontrado`;
-      dni.innerHTML = `Numero de documento: No se ha encontrado`;
+      nombre.innerHTML = `--------`;
+      apellido.innerHTML = `--------`;
+      fechanacimiento.innerHTML = `------------------`;
+      domicilio.innerHTML = `---------`;
+      email.innerHTML = `------`;
+      telefono.innerHTML = `--------`;
+      estadocivil.innerHTML = `-----------`;
+      nacionalidad.innerHTML = `------------`;
+      obrasocial.innerHTML = `--------------------`;
     } else {
       labelnotfound.setAttribute("hidden");
     }

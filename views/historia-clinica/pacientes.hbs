@@ -2,22 +2,67 @@
 {{! --------------- }}
 <div class="container">
 
-    <form action="" id="form-input-paciente">
-        <input type="number" id="input-paciente" class="form-control mb-2 w-75" placeholder="Ingrese el dni del paciente">     
+    <h1 class="display-3 text-center">Buscar Paciente</h1>
+
+
+    <form class="ml-3" id="form-input-paciente">
+        <label>Busqueda por DNI:</label>
+        <input  id="input-paciente" class="form-control mb-2 w-50"
+            placeholder="Ingrese el dni del paciente">
         <button class="btn btn-primary mb-3" type="submit" id="btn-form">Buscar</button>
-         <span id="label-notfound" class="label ml-2" hidden>No se ha encontrado el paciente.</span>
+        <span id="label-notfound" class="label ml-2" hidden>No se ha encontrado el paciente.</span>
     </form>
 
 
-    <div class=".d-none">
-        <div class="card border-primary">
-            <div class="card-body">
-                <label id="nombre">Nombre:</label><br>
-                <label id="apellido">Apellido:</label><br>
-                <label id="dni">Numero de documento:</label><br>
-                <a  id="mostrarHistorial" class="btn btn-primary">Ver Historial</a>
+    <div class="container" id="containerpaciente">
+
+
+
+        <div class="paciente border-bottom border-right border-primary rounded-lg">
+            <h5 class="tituloPaciente bg-primary rounded-top">Datos del paciente</h5>
+            <div class="pacienteIcons">
+                <div class="iconsContainer">
+                    <svg width="175px" height="175px" viewBox="0 0 16 16" class="bi bi-person-circle" fill="#007bff"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
+                        <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                        <path fill-rule="evenodd"
+                            d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
+                    </svg>
+                    <div class="button">
+                        <a id="btnhistorial" href="" class="rounded-pill btn btn-primary">Ver
+                            Historia Clinica</a>
+                    </div>
+                </div>
+                <div class="datosPaciente">
+                    <div>Nombre: </div>
+                    <p id="nombre">--------- </p>
+                    <div>Apellido: </div>
+                    <p id="apellido">---------</p>
+                    <div>Fecha de Nacimiento: </div>
+                    <p id="fechanacimiento"> ------------------</p>
+                    <div>Domicilio: </div>
+                    <p id="domicilio">---------</p>
+                    <div>Email: </div>
+                    <p id="email">-------</p>
+                    <div>Telefono: </div>
+                    <p id="telefono">---------</p>
+                    <div>Estado civil: </div>
+                    <p id="estadocivil">-----------</p>
+                    <div>Nacionalidad: </div>
+                    <p id="nacionalidad">------------</p>
+                    <div>Numero de Obra Social: </div>
+                    <p id="obrasocial">---------------------</p>
+
+                </div>
             </div>
+
         </div>
+
+        `
+
+
     </div>
 </div>
 {{! --------------- }}
