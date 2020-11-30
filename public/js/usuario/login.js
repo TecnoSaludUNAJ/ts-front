@@ -1,6 +1,4 @@
 import {postLoginUsuario, LoginDTO} from '../services/autenticacionService.js';
-import { getPacientebyUserId } from "../services/pacienteService.js";
-
 
 const logInForm = document.getElementById("loginForm");
 
@@ -27,25 +25,7 @@ const logInUsuario = async (dni, password) => {
       : alert("Usuario o contraseña ingresados no validos.");
 };
 
-const manageResponseUsuario = async (responseUsuario) => {
-    const ROL_PROFESIONAL = 2;
-    const ROL_PACIENTE = 3;
-    let sessionLogIn = responseUsuario;
-    // cargar tipo de usuario (segun rol)
-    switch(responseUsuario.usuario.rolId) {
-        case ROL_PROFESIONAL:
-            alert("Es un profesional")
-            break;
-        case ROL_PACIENTE:
-            let paciente = await getPacientebyUserId(sessionLogIn.usuario.id);
-            if (paciente) {
-              sessionLogIn.paciente = paciente;
-            }else{
-
-              window.location.assign("/paciente/registrar");
-            }
-            break;
-    }
-    localStorage.setItem("session", JSON.stringify(sessionLogIn));
+const manageResponseUsuario = (responseUsuario) => {
+    localStorage.setItem("session", JSON.stringify(responseUsuario));
     window.location.assign("/");
 };

@@ -1,4 +1,6 @@
 import { ROL_ADMIN, ROL_PACIENTE, ROL_PROFESIONAL } from "../constants.js";
+import { getPacientebyUserId } from "../services/pacienteService.js";
+import { getProfesionalbyUserId } from "../services/profesionalService.js";
 
 export const session = localStorage.getItem("session")
   ? JSON.parse(localStorage.getItem("session"))
@@ -55,5 +57,27 @@ export const loadPacienteIntoSession = async () => {
     // no existe, redirecciono a que complete los datos.
     localStorage.setItem("session", JSON.stringify(sessionLogIn));
     window.location.assign("/paciente/registrar");
+  }
+};
+
+export const loadInfoUserIntoSession = async () => {
+  // CASE PACIENTE
+  if (session.usuario.rolId == ROL_PACIENTE && !session.paciente) {
+    let paciente = await getPacientebyUserId(session.usuario.id);
+    if (paciente) {
+      // cargo datos en la respuesta
+      session.paciente = paciente;
+      localStorage.setItem("session", JSON.stringify(session));
+      window.location.reload();
+    }
+  }
+  // CASE PROFESIONAL
+  if (session.usuario.rolId == ROL_PROFESIONAL && !session.profesional) {
+    let profesional = await getProfesionalbyUserId(session.usuario.id);
+    if (profesional) {
+      session.profesional = profesional;
+      localStorage.setItem("session", JSON.stringify(session));
+      window.location.reload();
+    }
   }
 };
