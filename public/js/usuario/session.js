@@ -40,7 +40,7 @@ export const sessionUserMenu = () => {
     if (especialidadSelectDOM) {
       especialidadSelectDOM.addEventListener("change", (event) => {
         let found = session.profesional.especialidades.find(
-          (element) => element.id == event.target.value
+          (element) => element.especialidadId == event.target.value
         );
         session.especialidadSelected = found;
         localStorage.setItem("session", JSON.stringify(session));
@@ -52,7 +52,7 @@ export const sessionUserMenu = () => {
 
 const especialidadSelect = () => {
   let especialidades = session.profesional.especialidades.map(
-    (e) => `<option value="${e.id}">${e.tipoEspecialidad}</option>`
+    (e) => `<option value="${e.especialidadId}">${e.tipoEspecialidad}</option>`
   );
   return `<li class="nav-item px-2">
   <small class="small text-muted font-weight-light" style="font-size: 0.7em">Especialidad:</small>

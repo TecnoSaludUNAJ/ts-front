@@ -24,8 +24,15 @@ const PostTurnos = (body) => {
     .catch(err => console.error('ERROR: ' + err))
 };
 
+export const GetTurnosEspecialista = (especialista, especialidad, fecha) => {
+  const url = TURNOS_API_URL + "/Especialista/" + especialista + "?especialidad=" + especialidad + "&fecha=" + fecha;
+  return fetch(url)
+    .then(response => response.json())
+    .catch(err => console.error('ERROR: ' + err))
+};
+
 export default {
   GetTurnos,
   GetTurnosDisponibles,
-  PostTurnos,
+  PostTurnos
 };

@@ -1,7 +1,13 @@
 {{> head}}
-<div class="container">
-  <header class="border-bottom py-1 mb-3">
-    <h1 class="font-weight-normal"><i class="fas fa-calendar-day text-muted"></i> Agenda del día</h1>
+<div class="container shadow p-5">
+  <header class="py-1 mb-3 text-center">
+    <h1 class=""><i class="fas fa-calendar-day"></i> Agenda del día</h1>
+    <hr>
+    <p class="lead">
+      <i class="fas fa-calendar-day text-secondary"></i> <span id="fechaHoy"></span> |
+       <i class="fas fa-user-md text-secondary"></i> <span id="especialidad"></span> | 
+       <i class="fas fa-user-clock text-secondary"></i> Jornada: <span id="jornada"></p>
+    <hr>
   </header>
   <section class="m-auto">
     <table class="table border">
@@ -11,29 +17,15 @@
         <th scope="col" class="font-weight-normal">Historial Clínico</th>
         <th scope="col" class="font-weight-normal">Derivar</th>
       </thead>
-      <tbody>
-        <tr>
-          <td style="font-size: 1.5em;"><i class="fas fa-clock"></i> 9:00 - 9:30</td>
-          <td><a class="btn btn-outline-secondary "><i class="far fa-address-card"></i> Datos del paciente</a></td>
-          <td>
-            <div class="btn-group" role="group">
-              <a class="btn btn-outline-primary"><i class="fas fa-file-medical-alt"></i> Ver Historial Clínico</a>
-              <a class="btn btn-outline-success "><i class="fas fa-notes-medical"></i> Agregar Historial Clínico </a>
+      <tbody id="tBodyAgenda">
+          <td colspan="4">
+            <div class="text-center my-5">
+              <div class="spinner-grow text-secondary" role="status" style="width: 6em; height: 6em;">
+              <span class="sr-only">Cargando...</span>
+              </div>
+              <p class="lead text-muted pt-4">Cargando agenda...</p>
             </div>
           </td>
-          <td><a class="btn btn-outline-danger"><i class="fas fa-hand-holding-medical"></i> Asignar turno</a></td>
-        </tr>
-        <tr>
-          <td style="font-size: 1.5em;"><i class="fas fa-clock"></i> 10:00 - 10:30</td>
-          <td><a class="btn btn-outline-secondary "><i class="far fa-address-card"></i> Datos del paciente</a></td>
-          <td>
-            <div class="btn-group" role="group">
-              <a class="btn btn-outline-primary"><i class="fas fa-file-medical-alt"></i> Ver Historial Clínico</a>
-              <a class="btn btn-outline-success "><i class="fas fa-notes-medical"></i> Agregar Historial Clínico </a>
-            </div>
-          </td>
-          <td><a class="btn btn-outline-danger"><i class="fas fa-hand-holding-medical"></i> Asignar turno</a></td>
-        </tr>
       </tbody>
     </table>
   </section>
