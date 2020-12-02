@@ -1,5 +1,7 @@
-import { GetTurnosEspecialista } from "../services/turnosService.js";
+import { GetJornadaEspecialistaEspecialidad, GetTurnosEspecialista } from "../services/turnosService.js";
 import { session } from "../usuario/session.js";
+import {convertDate, formatHoursTwoDigits} from "../utils.js"
+
 
 window.addEventListener(
   "load",
@@ -15,22 +17,19 @@ const tBody = document.getElementById("tBodyAgenda");
 const loadTurnos = async () => {
   let especialista = session.especialidadSelected.especialistaId;
   let especialidad = session.especialidadSelected.especialidadId;
-  let fecha = "04-12-2020";
-  console.log("Especialista: " + especialista);
+  let fecha = convertDate(new Date());
   let turnos = await GetTurnosEspecialista(especialista, especialidad, fecha);
-  console.log(turnos);
   turnos && turnos.length > 0
     ? ((tBody.innerHTML = ""), turnos.map((t) => addTurnoDOM(t)))
     : (tBody.innerHTML = emptyTurnos);
 };
 
 const addTurnoDOM = (turno) => {
-  console.log(turno);
-  let horaInicio = turno.horaInicio.slice(11, 16);
-  let horaFin = turno.horaFin.slice(11, 16);
+  let horaInicio = formatHoursTwoDigits(turno.horaInicio);
+  let horaFin = formatHoursTwoDigits(turno.horaFin);
   tBody.innerHTML += `
   <tr>
-    <td class="font-we" style="font-size: 1.5em;"><i class="fas fa-clock"></i> ${horaInicio} - ${horaFin}</th>
+    <td class="font-we" style="font-size: 1.3em;"><i class="fas fa-clock"></i> ${horaInicio} - ${horaFin}</th>
     <td><a class="btn btn-outline-secondary" href="/datosPaciente?pacienteId=${turno.idPaciente}"><i class="far fa-address-card"></i> Datos del paciente</a></td>
     <td>
       <div class="btn-group" role="group">
@@ -47,13 +46,27 @@ const emptyTurnos = `
   <tr class="text-center">
   <td colspan="4">
   <i class="far fa-calendar-minus text-primary my-4" style="font-size: 4em"></i>
-  <h3 class="font-weight-normal text-secondary py-2">Todavía no hay turnos asignados para el día de hoy.</h3>
+  <h3 class="font-weight-normal text-secondary py-2">No tenés turnos asignados para el día de hoy.</h3>
   </td>
   </tr>
 `;
 
-const loadHeaderTurnos = () => {
-  $("#fechaHoy").text(new Date().toLocaleDateString());
+const loadHeaderTurnos = async() => {
+  let fecha = new Date();
+  $("#fechaHoy").text(fecha.toLocaleDateString());
   $("#especialidad").text(session.especialidadSelected.tipoEspecialidad);
-  $("#jornada").text("Cargando...");
+
+  // load jornada
+  let especialista = session.especialidadSelected.especialistaId;
+  let especialidad = session.especialidadSelected.especialidadId;
+  let DiaId = fecha.getDay();
+  let jornada = await GetJornadaEspecialistaEspecialidad(especialista, especialidad, DiaId);
+  if(jornada){
+    $("#jornada").text(`Horario: ${formatHoursTwoDigits(jornada.horaInicio)} a ${formatHoursTwoDigits(jornada.horaFin)}`);
+  }
+  else{
+    $("#jornada").text("No tienes horario asignado.");
+  }
 };
+
+

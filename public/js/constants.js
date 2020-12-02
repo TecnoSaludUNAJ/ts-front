@@ -14,6 +14,8 @@ export class CalendarioTurnos {
   }
 }
 
+export const CALENDARIO_TURNOS_API = "https://localhost:44307/api/CalendarioTurnos";
+
 /* API HOSPITAL */
 export const API_URL_HOSPITAL = "https://localhost:44308/api"
 export const ESPECIALIDADES_API_URL = API_URL_HOSPITAL +"/Especialidades";

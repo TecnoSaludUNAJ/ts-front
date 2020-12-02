@@ -1,4 +1,4 @@
-import { TURNOS_API_URL, TURNOS_DISPONIBLES_API_URL } from "../constants.js"
+import { TURNOS_API_URL, TURNOS_DISPONIBLES_API_URL, CALENDARIO_TURNOS_API } from "../constants.js"
 import { session } from "../usuario/session.js";
 
 const GetTurnos = () => {
@@ -30,6 +30,14 @@ export const GetTurnosEspecialista = (especialista, especialidad, fecha) => {
     .then(response => response.json())
     .catch(err => console.error('ERROR: ' + err))
 };
+
+export const GetJornadaEspecialistaEspecialidad = (especialista, especialidad, dia) => {
+  const url = CALENDARIO_TURNOS_API + "/Especialista/" + especialista + "?DiaId=" + dia + "&IdEspecialidad=" + especialidad;
+  return fetch(url)
+    .then(response => response.json())
+    .catch(err => console.error('ERROR: ' + err))
+};
+
 
 export default {
   GetTurnos,
