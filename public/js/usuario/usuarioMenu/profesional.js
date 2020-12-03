@@ -10,7 +10,7 @@ export const menuProfesional = `
     <div id="profTurnos" class="collapse" aria-labelledby="profTurnos" data-parent="#accordionExample">
     <div class="card-body my-0 py-0">
     <nav class="nav flex-column">
-      <a class="nav-link" href="#"><i class="fas fa-calendar-day"></i> Agenda del día</a>
+      <a class="nav-link" href="/turnos/agenda-dia"><i class="fas fa-calendar-day"></i> Agenda del día</a>
       <a class="nav-link" href="/turnos"><i class="fas fa-hand-holding-medical"></i> Solicitar turno</a>
     </nav>
     </div>

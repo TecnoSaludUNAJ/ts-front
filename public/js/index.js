@@ -1,5 +1,10 @@
-import { ROL_PACIENTE } from "./constants.js";
-import { session, logOut, sessionUserMenu } from "./usuario/session.js";
+import { ROL_PACIENTE, ROL_PROFESIONAL } from "./constants.js";
+import {
+  session,
+  logOut,
+  sessionUserMenu,
+  loadInfoUserIntoSession,
+} from "./usuario/session.js";
 import { menuUsuario } from "./usuario/menuUsuario.js";
 // todo el js comun en todo el sitio
 
@@ -27,9 +32,10 @@ const modalCompleteRegister = (nombres, apellidos) => {
 
 // sidebar
 
-
 // session
 if (session) {
+  //load data user into session
+  loadInfoUserIntoSession();
   // set navbar
   sessionUserMenu();
   // show sidebar
@@ -37,12 +43,12 @@ if (session) {
     // change wrapper and show button
     $("#wrapper").addClass("toggled");
     $("#menu-toggle").removeClass("d-none");
-    // 
+    //
     $("#menu-toggle").click(function (e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
-  
+
     $(window).resize(function (e) {
       if ($(window).width() <= 768) {
         $("#wrapper").removeClass("toggled");
