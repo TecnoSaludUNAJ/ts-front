@@ -29,7 +29,7 @@ const addTurnoDOM = (turno) => {
   let horaFin = formatHoursTwoDigits(turno.horaFin);
   tBody.innerHTML += `
   <tr>
-    <td class="font-we" style="font-size: 1.3em;"><i class="fas fa-clock"></i> ${horaInicio} - ${horaFin}</th>
+    <td class="" style="padding: 1.2em 1em"><i class="fas fa-clock"></i> ${horaInicio} - ${horaFin}</th>
     <td><a class="btn btn-outline-secondary" href="/datosPaciente?pacienteId=${turno.idPaciente}"><i class="far fa-address-card"></i> Datos del paciente</a></td>
     <td>
       <div class="btn-group" role="group">

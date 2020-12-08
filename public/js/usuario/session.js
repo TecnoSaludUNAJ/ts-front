@@ -18,7 +18,7 @@ export const sessionUserMenu = () => {
   const sessionNav = document.getElementById("sessionNav");
   sessionNav.innerHTML = `
   ${session.usuario.rolId == ROL_PROFESIONAL ? especialidadSelect() : ""}
-  <li class="nav-item border-right border-left px-2">
+  <li class="nav-item border-right px-2">
       <span class="user-info align-middle pr-1">
         <span class="user-fullname text-capitalize">
           ${session.usuario.nombres} ${session.usuario.apellidos}
