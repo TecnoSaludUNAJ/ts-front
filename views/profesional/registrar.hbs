@@ -35,19 +35,15 @@
                 <input class="form-control" type="date" id="fechanacimiento" name="fechanacimiento" required>
             </div>
 
-            <div class="col-4 text-center">
-                <label class="label1">Sexo:<span class="text-danger">*</span></label>
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optradio" value="Masculino"
-                            required>Masculino
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optradio" value="Femenino" required>Femenino
-                    </label>
-                </div>
+
+            <div class="col">
+              <label for="sexo">Sexo<span class="text-danger">*</span> </label>
+              <select class="form-control" id="sexo" name="sexo" required>
+                  <option selected value="">Seleccionar sexo</option>
+                  <option value="Femenino">Femenino</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Otro">Otro</option>
+              </select>
             </div>
 
             <div class="col-4">

@@ -82,13 +82,8 @@ formProfesional.addEventListener("submit", function (e) {
   const telefono = document.getElementById("telefono").value;
   const email = document.getElementById("email").value;
   const domicilio = document.getElementById("domicilio").value;
-  var checkbox = document.getElementsByName("optradio");
-  var sexo = null;
-  if (checkbox[0].checked) {
-    sexo = checkbox[0].value;
-  } else {
-    sexo = checkbox[1].value;
-  }
+  const sexo = document.getElementById("sexo").value;
+
   const usuarioId = 0;
   var profesional = new Profesional(
     nombre,
