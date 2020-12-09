@@ -69,11 +69,12 @@ const showTurnosInTable = (turnos) => {
     rowData.forEach((column) => {
       row.innerHTML += column ? `<td>
         <button
+          title="Reservar este turno."
           type="button"
           class="btn btn-success"
           onclick="reservar('${column.fecha}', '${column.horaInicio}',  ${column.idEspecialista}, ${column.idEspecialidad})"
         >
-          Reservar
+          <h4 class="m-0"><i class="fa fa-check"></i></h4>
         </button>
       </td>` : '<td></td>';
     });
