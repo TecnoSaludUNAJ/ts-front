@@ -7,3 +7,10 @@ export function convertDate(inputFormat) {
   var d = new Date(inputFormat)
   return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/')
 }
+
+export const getParamURL = (name) =>
+  decodeURIComponent(
+    (new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(
+      location.search
+    ) || [, ""])[1].replace(/\+/g, "%20")
+  ) || null;

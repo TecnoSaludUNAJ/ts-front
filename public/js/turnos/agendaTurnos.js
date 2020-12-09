@@ -30,7 +30,7 @@ const addTurnoDOM = (turno) => {
   tBody.innerHTML += `
   <tr>
     <td class="" style="padding: 1.2em 1em"><i class="fas fa-clock"></i> ${horaInicio} - ${horaFin}</th>
-    <td><a class="btn btn-outline-secondary" href="/datosPaciente?pacienteId=${turno.idPaciente}"><i class="far fa-address-card"></i> Datos del paciente</a></td>
+    <td><a class="btn btn-outline-secondary" href="/paciente/informacion?pacienteId=${turno.idPaciente}"><i class="far fa-address-card"></i> Datos del paciente</a></td>
     <td>
       <div class="btn-group" role="group">
         <a class="btn btn-outline-primary" href="/historiaClinica?pacienteId=${turno.idPaciente}"><i class="fas fa-file-medical-alt"></i> Ver Historial Clínico</a>
