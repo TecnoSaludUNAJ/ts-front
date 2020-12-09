@@ -7,7 +7,7 @@ const getPacientebyID = (id) => {
 };
 
 const getPacientebyDNI = (dni) => {
-  return fetch(`${PACIENTES_API_URL}/${dni}`)
+  return fetch(`${PACIENTES_API_URL}/dni/${dni}`)
     .then((response) => response.json())
     .catch((err) => console.log("ERROR: " + err));
 };

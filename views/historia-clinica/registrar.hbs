@@ -1,44 +1,60 @@
 {{> head}}
 {{! --------------- }}
 <div class="container">
-    <h1>Ingrese los datos de la consulta</h1>
-    <form id="form1">
-            <div class="form-group">
-                <label class="label1">Paciente:</label>
-                <input class="form-control" type="text" >
-            </div>
-
+  <header>
+    <h1><i class="fas fa-notes-medical"></i> Agregar Historia Clínica</h1>
+  </header>
+  <form id="buscadorPaciente" class="px-5 mx-5 my-4">
+    <div class="input-group m-auto" style="width:500px">
+      <input type="text" class="form-control" placeholder="Ingrese DNI del paciente" id="dniFind" name="dniFind" style="width: 3em!important">
+      <div class="input-group-append">
+      <button class="btn btn-outline-success" type="submit" value="submit"><i class="fas fa-search"></i> Buscar paciente</button>
+      </div>
+    </div>
+  </form>
+  <div id="showError" class="alert alert-warning d-none"></div>
+  <section id="datosPaciente" class="border p-4 my-3 d-none">
+      <h5 class="d-block"><i class="far fa-address-card"></i> Paciente</h5>
+      <div>
+      <span class="text-muted font-weight-light">Nombre completo:</span>
+        <span id="nombrecompleto" class="border-bottom">-</span>
+      <div class="row">
+      <div class="col">
+        <span class="text-muted font-weight-light">DNI:</span>
+        <span id="dni" class="border-bottom">-</span>
+      </div>
+      <div class="col">
+        <span class="text-muted font-weight-light">ID único:</span>
+        <span id="pacienteId" class="border-bottom">-</span>
+      </div>
+    </div>
+  </section>
+    <form id="addHistoriaClinica">
+        <h5 class="">Complete los datos para registrar la consulta:</h5>
         <div class="form-row ">
-            
             <div class="form-group col-md-6">
-                <label class="label1">Motivo de Consulta:</label>
-                <input class="form-control" type="text">
+                <label class="label1">Motivo de Consulta<small class="small text-danger">*</small>:</label>
+                <input class="form-control" type="text" id="motivo" required>
             </div>
             <div class="form-group col-md-6">
-                <label class="label1">Diagnostico:</label>
-                <input class="form-control" type="text" >
+                <label class="label1">Próxima consulta<small class="small text-danger">*</small>:</label>
+                <input class="form-control" type="date" id="proximaconsulta" >
             </div>
-        </div>
-
+          </div>
             <div class="form-group">
-                <label class="label1">Descripcion del analisis:</label>
-                <input class="form-control" type="text" >
-            </div>
-            <div class="form-group">
-                <label class="label1">Descripcion de la receta:</label>
-                <input class="form-control" type="text" >
+                <label class="label1">Diagnóstico<small class="small text-danger">*</small>:</label>
+                <input class="form-control" type="text" id="diagnostico" >
             </div>
             <div class="form-group">
-                <label class="label1">Proxima revision:</label>
-                <input class="form-control" type="text" >
+                <label class="label1">Descripcion del analisis<small class="small text-danger">*</small>:</label>
+                <textarea class="form-control" id="analisis" rows="3"></textarea>
             </div>
             <div class="form-group">
-                <label class="label1">Especialista:</label>
-                <input class="form-control" type="text"  >
+                <label class="label1">Descripcion de la receta<small class="small text-danger">*</small>:</label>
+                <textarea class="form-control" id="receta" rows="3"></textarea>
             </div>
-            
-
-        
+            <p><small class="small text-danger"> *</small> Campos requeridos</p>
+            <button class="btn btn-success btn-lg" id="btnSubmit" disabled="true" type="submit">Agregar historia clínica</button>
     </form>
 </div>
 {{! --------------- }}

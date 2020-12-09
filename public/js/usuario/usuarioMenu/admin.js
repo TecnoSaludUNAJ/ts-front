@@ -25,7 +25,6 @@ export const menuAdministrador = `
     <div class="card-body my-0 py-0">
       <nav class="nav flex-column">
         <a class="nav-link" href="/paciente/listapacientes">Lista Pacientes</a>
-        <a class="nav-link" href="/paciente/registrar">Ver historia clinica</a>
       </nav>
     </div>
     </div>
