@@ -1,53 +1,44 @@
 import turnoService from "../services/turnosService.js";
+import { ESPECIALIDADES_API_URL, ESPECIALISTAS_API_URL} from '../constants.js';
 import { formatHoursTwoDigits } from "../utils.js";
 
-const getEspecialista = (especialistaId) => {
-  const especialistas = [{
-    idEspecialista: 1,
-    nom_profesional: "Dr Oscar Mendez",
-    nom_especialidad: "Médico",
-  },
-  {
-    idEspecialista: 2,
-    nom_profesional: "Dra Lucia Ramos",
-    nom_especialidad: "Clínico",
-  },
-  {
-    idEspecialista: 3,
-    nom_profesional: "Dra Martin Morales",
-    nom_especialidad: "Traumatología",
-  },
-  {
-    idEspecialista: 4,
-    nom_profesional: "Dr Carlos Suarez",
-    nom_especialidad: "Clínico",
-  },
-  {
-    idEspecialista: 5,
-    nom_profesional: "Dr Carlos Suarez",
-    nom_especialidad: "Clínico",
-  }];
 
-  return especialistas.find((especialista) => especialista.idEspecialista === especialistaId);
+const mapResultsToObject = (array) => {
+  return array.reduce((obj, item) => {
+    obj[item.id] = item
+    return obj
+  }, {});
 };
 
-const showTurnosInTable = (turnos) => {
+const getEspecialidades = () => {
+  return fetch(ESPECIALIDADES_API_URL)
+    .then((response) => response.json());
+};
+
+
+const getEspecialistas = () => {
+  return fetch(ESPECIALISTAS_API_URL)
+    .then((response) => response.json());
+};
+
+const showTurnosInTable = async (turnos) => {
+  const especialidades = await getEspecialidades().then(mapResultsToObject);
+  const especialistas = await getEspecialistas().then(mapResultsToObject);
   const table = document.getElementById("tablaDeTurnos");
   const tableBody = table.getElementsByTagName('tbody')[0];
   tableBody.innerHTML = "";
 
   turnos.forEach((turno, index) => {
     const row = tableBody.insertRow(index);
-    const {nom_profesional, nom_especialidad} = getEspecialista(turno.idEspecialista);
     row.innerHTML = `
       <th scope="row">
         ${turno.id}
       </th>
       <td>
-        ${nom_profesional}
+        ${especialistas[turno.idEspecialista] ? especialistas[turno.idEspecialista].nombre + " " + especialistas[turno.idEspecialista].apellido : "Otro"}
       </td>
       <td>
-        ${nom_especialidad}
+        ${ especialidades[turno.idEspecialidad] ? especialidades[turno.idEspecialidad].tipoEspecialidad : "Otro" }
       </td>
       <td>
         ${turno.idConsultorio}
