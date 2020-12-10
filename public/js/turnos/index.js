@@ -1,6 +1,6 @@
 import turnoService from "../services/turnosService.js";
 import { formatHoursTwoDigits } from "../utils.js";
-import { DAYS , ESPECIALIDADES_API_URL } from '../constants.js';
+import { DAYS , ESPECIALIDADES_API_URL, ROL_PROFESIONAL } from '../constants.js';
 import { session } from "../usuario/session.js";
 
 const compareHours = ([keya],  [keyb]) => {
@@ -84,12 +84,17 @@ const showTurnosInTable = async (turnos) => {
 };
 
 window.reservar = (fecha, horaInicio, idEspecialista, idEspecialidad) => {
+  const querystring = window.location.search;
+  const urlparams = new URLSearchParams(querystring);
+  const pacienteidQuery = urlparams.get("pacienteId");
+  const idPaciente = pacienteidQuery && session.usuario.rolId == ROL_PROFESIONAL ? pacienteidQuery : session.paciente.paciente_Id;
+
   const body = {
     fecha,
     horaInicio,
     idEspecialista,
     idEspecialidad,
-    idPaciente: session.paciente.paciente_Id,
+    idPaciente,
   };
 
   return turnoService.PostTurnos(body)
