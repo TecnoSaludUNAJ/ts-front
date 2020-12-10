@@ -9,16 +9,19 @@ const buscadorPaciente = document.getElementById("buscadorPaciente");
 const formHistoriaClinica = document.getElementById("addHistoriaClinica");
 
 let pacienteIDResult;
-
+console.log(pacienteId)
 window.addEventListener(
   "load",
   () => {
     buscadorPaciente.onsubmit = function (e) {
+      $("#infoNoId").addClass("d-none")
       e.preventDefault();
       loadPacienteByDNI($("#dniFind").val());
     }
+    
     if(pacienteId){
       pacienteIDResult = pacienteId;
+      $("#infoNoId").addClass("d-none")
       $("#buscadorPaciente").addClass("d-none")
       loadPaciente(pacienteId)
     }
@@ -51,7 +54,8 @@ const loadPaciente = async (pacienteId) => {
 
 
 const loadPacienteByDNI = async (dni) => {
-  $("#showError").addClass("d-none")
+  $("#infoSearch").addClass("d-none")
+  $("#showError").addClass("d-none");
   let paciente = await getPacientebyDNI(dni);
   if(paciente.paciente_Id){
     pacienteIDResult = paciente.paciente_Id;

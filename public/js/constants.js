@@ -48,7 +48,7 @@ export const HISTORIA_API_URL = "https://localhost:5001/api/HistoriaClinicas"
 export const ANALISIS_API_URL = "https://localhost:5001/api/Analisis" */
 export const REGISTROS_API_URL = "https://localhost:44306/api/Registros"
 export const RECETAS_API_URL = "https://localhost:44306/api/Recetas"
-export const HISTORIA_API_URL = "https://localhost:44306/api/HistoriaClinicas"
+export const HISTORIA_API_URL = "https://localhost:44306/api/HistoriaClinica"
 export const ANALISIS_API_URL = "https://localhost:44306/api/Analisis"
 
 // API AUTENTICACION
