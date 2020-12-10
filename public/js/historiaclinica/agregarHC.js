@@ -1,12 +1,14 @@
 import {getParamURL} from '../utils.js';
 import {getPacientebyDNI, getPacientebyID} from '../services/pacienteService.js';
+import {postRegistroHC, RegistroHistoriaDTO} from '../services/historiaClinicaService.js';
 import {session} from '../usuario/session.js'
 
 const pacienteId = getParamURL("pacienteId");
 
 const buscadorPaciente = document.getElementById("buscadorPaciente");
 const formHistoriaClinica = document.getElementById("addHistoriaClinica");
-let pacienteIDResult ;
+
+let pacienteIDResult;
 
 window.addEventListener(
   "load",
@@ -16,6 +18,7 @@ window.addEventListener(
       loadPacienteByDNI($("#dniFind").val());
     }
     if(pacienteId){
+      pacienteIDResult = pacienteId;
       $("#buscadorPaciente").addClass("d-none")
       loadPaciente(pacienteId)
     }
@@ -51,6 +54,7 @@ const loadPacienteByDNI = async (dni) => {
   $("#showError").addClass("d-none")
   let paciente = await getPacientebyDNI(dni);
   if(paciente.paciente_Id){
+    pacienteIDResult = paciente.paciente_Id;
     $("#datosPaciente").removeClass("d-none")
     $("#nombrecompleto").text(paciente.nombre + " " + paciente.apellido);
     $("#dni").text(paciente.dni);
@@ -71,15 +75,41 @@ const showError = (text) => {
 const addHistoriaClinica = async () => {
   // profesional
   let especialistaId = session.especialidadSelected.especialistaId;
-  let especialidadId = session.especialidadSelected.especialidadId;
   // paciente
-  let paciente_Id = $("#pacienteId").val();
+  let pacienteId = parseInt(pacienteIDResult);
   // form data
-  let motivo = $("#motivo").val();
-  let proximaconsulta = new Date($("#proximaconsulta").val());
+  let motivoConsulta = $("#motivo").val();
+  let proximaRevision = new Date($("#proximaconsulta").val()).toISOString();
   let diagnostico = $("#diagnostico").val();
   let analisis = $("#analisis").val();
   let receta = $("#receta").val();
+  let fechaRegistro = new Date().toISOString();
+
+  let RegistroHistoriaClinica = new RegistroHistoriaDTO(
+    especialistaId,
+    motivoConsulta,
+    proximaRevision,
+    fechaRegistro,
+    diagnostico,
+    analisis,
+    receta, 
+    pacienteId
+  );
   // post
-  console.log(motivo);
+  console.log(RegistroHistoriaClinica);
+  let postRegistro = await postRegistroHC(RegistroHistoriaClinica);
+  if(postRegistro.registroId){
+    formHistoriaClinica.innerHTML = `<div class="card text-center p-5 my-2">
+    <div class="card-header bg-transparent text-success border-0">
+      <i class="far fa-check-circle display-4 d-block"></i>
+      <h5 class="card-title text-success display-4 d-block">Registro exitoso</h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text lead">La historia clínica ha sido registrado correctamente con el <b>ID: ${postRegistro.registroId}</b>.</p>
+    </div>
+  </div>` 
+  }
+  else{
+    showError("Ha ocurrido un error al insertar el registro.")
+  }
 }
