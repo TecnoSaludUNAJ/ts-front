@@ -33,7 +33,7 @@ const addTurnoDOM = (turno) => {
     <td><a class="btn btn-outline-secondary" href="/paciente/informacion?pacienteId=${turno.idPaciente}"><i class="far fa-address-card"></i> Datos del paciente</a></td>
     <td>
       <div class="btn-group" role="group">
-        <a class="btn btn-outline-primary" href="/historiaClinica?pacienteId=${turno.idPaciente}"><i class="fas fa-file-medical-alt"></i> Ver Historial Clínico</a>
+        <a class="btn btn-outline-primary" href="/historiaClinica/historia?pacienteid=${turno.idPaciente}"><i class="fas fa-file-medical-alt"></i> Ver Historial Clínico</a>
         <a class="btn btn-outline-success" href="/historiaClinica/registrar?pacienteId=${turno.idPaciente}"><i class="fas fa-notes-medical"></i> Agregar Historial Clínico </a>
       </div>
     </td>
