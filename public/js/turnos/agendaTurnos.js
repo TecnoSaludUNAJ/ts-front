@@ -19,6 +19,7 @@ const loadTurnos = async () => {
   let especialidad = session.especialidadSelected.especialidadId;
   let fecha = convertDate(new Date());
   let turnos = await GetTurnosEspecialista(especialista, especialidad, fecha);
+  console.log(turnos)
   turnos && turnos.length > 0
     ? ((tBody.innerHTML = ""), turnos.map((t) => addTurnoDOM(t)))
     : (tBody.innerHTML = emptyTurnos);

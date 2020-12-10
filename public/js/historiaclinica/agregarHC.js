@@ -6,7 +6,6 @@ const pacienteId = getParamURL("pacienteId");
 
 const buscadorPaciente = document.getElementById("buscadorPaciente");
 const formHistoriaClinica = document.getElementById("addHistoriaClinica");
-let pacienteIDResult ;
 
 window.addEventListener(
   "load",
@@ -16,6 +15,7 @@ window.addEventListener(
       loadPacienteByDNI($("#dniFind").val());
     }
     if(pacienteId){
+      pacienteIDResult = pacienteId;
       $("#buscadorPaciente").addClass("d-none")
       loadPaciente(pacienteId)
     }
