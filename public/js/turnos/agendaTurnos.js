@@ -19,6 +19,7 @@ const loadTurnos = async () => {
   let especialidad = session.especialidadSelected.especialidadId;
   let fecha = convertDate(new Date());
   let turnos = await GetTurnosEspecialista(especialista, especialidad, fecha);
+  console.log(turnos)
   turnos && turnos.length > 0
     ? ((tBody.innerHTML = ""), turnos.map((t) => addTurnoDOM(t)))
     : (tBody.innerHTML = emptyTurnos);
@@ -29,8 +30,8 @@ const addTurnoDOM = (turno) => {
   let horaFin = formatHoursTwoDigits(turno.horaFin);
   tBody.innerHTML += `
   <tr>
-    <td class="font-we" style="font-size: 1.3em;"><i class="fas fa-clock"></i> ${horaInicio} - ${horaFin}</th>
-    <td><a class="btn btn-outline-secondary" href="/datosPaciente?pacienteId=${turno.idPaciente}"><i class="far fa-address-card"></i> Datos del paciente</a></td>
+    <td class="" style="padding: 1.2em 1em"><i class="fas fa-clock"></i> ${horaInicio} - ${horaFin}</th>
+    <td><a class="btn btn-outline-secondary" href="/paciente/informacion?pacienteId=${turno.idPaciente}"><i class="far fa-address-card"></i> Datos del paciente</a></td>
     <td>
       <div class="btn-group" role="group">
         <a class="btn btn-outline-primary" href="/historiaClinica?pacienteId=${turno.idPaciente}"><i class="fas fa-file-medical-alt"></i> Ver Historial Clínico</a>

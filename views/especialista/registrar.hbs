@@ -10,7 +10,7 @@
     <form id="form-especialista">
         <div class="row mt-5">
             <div class="col-4 m-auto">
-                <label class="font-weight-bolder col-form-label-lg">Seleccione el profesional: </label>
+                <label class="font-weight-bolder col-form-label-lg">Seleccione el profesional:<span class="text-danger">*</span> </label>
                 <input class="form-control" list="listprofesionales" name="profesional"
                     id="input-especialista-profesionalid" required>
                 <datalist id="listprofesionales">
@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="col-4 m-auto">
-                <label class="font-weight-bolder col-form-label-lg">Seleccione especialidad: </label>
+                <label class="font-weight-bolder col-form-label-lg">Seleccione especialidad:<span class="text-danger">*</span> </label>
                 <input list="listespecialidades" class="form-control" name="especialidad"
                     id="input-especialista-especialidadid" required>
                 <datalist id="listespecialidades">
@@ -33,7 +33,7 @@
 
         <div class="row mt-5">
             <div class="col">
-                <h6 for="dias" class="font-weight-bolder col-form-label-md ">Seleccione los dias:</h6>
+                <h6 for="dias" class="font-weight-bolder col-form-label-md ">Seleccione los dias:<span class="text-danger">*</span></h6>
 
                 <select class="form-control w-75" name="dias" required>
                     <option value="" >Seleccione un dia</option>
@@ -45,12 +45,12 @@
                 </select>
             </div>
             <div class="col align-content-center">
-                <label class="font-weight-bolder col-form-label-md" for="appt">Hora de inicio de jornada:</label>
+                <label class="font-weight-bolder col-form-label-md" for="appt">Hora de inicio de jornada:<span class="text-danger">*</span></label>
                 <input type="time" class="form-control w-75" name="horarioinicio" required>
             </div>
 
             <div class="col">
-                <label class="font-weight-bolder col-form-label-md" for="appt">Hora de finalización de jornada:</label>
+                <label class="font-weight-bolder col-form-label-md" for="appt">Hora de finalización de jornada:<span class="text-danger">*</span></label>
                 <input type="time" class="form-control w-75" name="horariofin" required>
             </div>
         </div>
@@ -61,7 +61,7 @@
         </div>
 
         <button class="btn btn-primary  mt-3" id="btndias" type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button>
-
+  <p class="small mt-3"><span class="text-danger">*</span> Campos requeridos</p>
         <div class="row text-center">
             <div class="col-12">
                 <button class="btn btn-primary w-25 mt-4" id="btnform" type="submit">Crear</button>

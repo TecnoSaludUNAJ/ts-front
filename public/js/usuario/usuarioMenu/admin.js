@@ -1,8 +1,8 @@
 export const menuAdministrador = `
 <div class="accordion">
-<div class="card border-0">
+<div class="card border-0 bg-transparent">
     <small class="nav-subtitle">Admnistracion</small>
-    <div class="card-header bg-white border-0 p-1" id="headingOne">
+    <div class="card-header bg-transparent border-0 p-1" id="headingOne">
       <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#admProfesionales" aria-expanded="true" aria-controls="admProfesionales">
         <i class="fas fa-user-md"></i> Profesionales
       </button>
@@ -16,7 +16,7 @@ export const menuAdministrador = `
       </nav>
     </div>
     </div>
-     <div class="card-header bg-white border-0 p-1" id="headingOne">
+     <div class="card-header bg-transparent border-0 p-1" id="headingOne">
       <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#admPacientes" aria-expanded="true" aria-controls="admPacientes">
         <i class="fas fa-hospital-user"></i> Pacientes
       </button>
@@ -25,11 +25,10 @@ export const menuAdministrador = `
     <div class="card-body my-0 py-0">
       <nav class="nav flex-column">
         <a class="nav-link" href="/paciente/listapacientes">Lista Pacientes</a>
-        <a class="nav-link" href="/paciente/registrar">Ver historia clinica</a>
       </nav>
     </div>
     </div>
-     <div class="card-header bg-white border-0 p-1" id="headingOne">
+     <div class="card-header bg-transparent border-0 p-1" id="headingOne">
       <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#admObraSocial" aria-expanded="true" aria-controls="admObraSocial">
         <i class="fas fa-medkit"></i> Obras Sociales
       </button>
@@ -42,18 +41,7 @@ export const menuAdministrador = `
       </nav>
     </div>
     </div>
-    <div class="card-header bg-white border-0 p-1" id="headingOne">
-    <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#admTurnos" aria-expanded="true" aria-controls="admTurnos">
-      <i class="far fa-calendar-alt"></i> Turnos
-    </button>
-    </div>
-    <div id="admTurnos" class="collapse" aria-labelledby="admTurnos" data-parent="#accordionExample">
-    <div class="card-body my-0 py-0">
-    <nav class="nav flex-column">
-      <a class="nav-link" href="turnos/mostrarTurno">Ver turnos</a>
-    </nav>
-    </div>
-    </div>
+    
   </div>
 </div>
 ` 

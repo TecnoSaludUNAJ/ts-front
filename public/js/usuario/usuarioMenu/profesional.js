@@ -1,9 +1,9 @@
 export const menuProfesional = `
 <div class="accordion">
-  <div class="card border-0">
+  <div class="card border-0 bg-transparent">
     <small class="nav-subtitle">Profesional</small>
-    <div class="card-header bg-white border-0 p-1" id="headingOne">
-      <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#profTurnos" aria-expanded="true" aria-controls="profTurnos">
+    <div class="card-header bg-transparent border-0 p-1" id="headingOne">
+      <button class="btn dropdown-toggle btn-block text-left " type="button" data-toggle="collapse" data-target="#profTurnos" aria-expanded="true" aria-controls="profTurnos">
         <i class="far fa-calendar-alt"></i> Turnos
       </button>
     </div>
@@ -15,7 +15,7 @@ export const menuProfesional = `
     </nav>
     </div>
     </div>
-    <div class="card-header bg-white border-0 p-1" id="headingOne">
+    <div class="card-header bg-transparent border-0 p-1" id="headingOne">
       <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#profHistorial" aria-expanded="true" aria-controls="profHistorial">
         <i class="fas fa-laptop-medical"></i> Historial clínico
       </button>

@@ -6,6 +6,12 @@ const getPacientebyID = (id) => {
     .catch((err) => console.log("ERROR: " + err));
 };
 
+const getPacientebyDNI = (dni) => {
+  return fetch(`${PACIENTES_API_URL}/dni/${dni}`)
+    .then((response) => response.json())
+    .catch((err) => console.log("ERROR: " + err));
+};
+
 const getPacientebyUserId = (id) => {
   return fetch(`${PACIENTES_API_URL}/userId/${id}`)
     .then((response) => response.json())
@@ -32,6 +38,12 @@ const postPaciente = (paciente) => {
 
 const getObrasSociales = () => {
   return fetch(OBRASSOCIALES_API_URL)
+    .then((response) => response.json())
+    .catch((err) => console.log("ERROR: " + err));
+};
+
+const getObraSocialbyId = (id) => {
+  return fetch(`${OBRASSOCIALES_API_URL}/${id}`)
     .then((response) => response.json())
     .catch((err) => console.log("ERROR: " + err));
 };
@@ -89,4 +101,4 @@ class ObraSocialDTO {
 }
 
 
-export { getPacientebyID, getPacientebyUserId, getAllPacientes, postPaciente, getObrasSociales, postObraSocial, PacienteDTO, ObraSocialDTO };
+export { getPacientebyID, getPacientebyDNI, getPacientebyUserId, getAllPacientes, postPaciente, getObrasSociales, getObraSocialbyId, postObraSocial, PacienteDTO, ObraSocialDTO };

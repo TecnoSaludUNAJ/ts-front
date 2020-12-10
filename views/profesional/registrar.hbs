@@ -13,16 +13,16 @@
 
         <div class="row m-5">
             <div class="col-4">
-                <label class="label1">Nombre:</label>
+                <label class="label1">Nombre:<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre" required><br>
             </div>
             <div class="col-4">
-                <label class="label1">Apellido:</label>
+                <label class="label1">Apellido:<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="apellido" id="apellido" placeholder="Apellido"
                     required><br>
             </div>
             <div class="col-4">
-                <label class="label1">Dni:</label>
+                <label class="label1">Dni:<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="dni" id="dni" placeholder="Dni" required><br>
             </div>
 
@@ -31,27 +31,23 @@
         <div class="row m-5">
 
             <div class="col-4">
-                <label id="labelnacimiento" class="label1">Nacimiento:</label>
+                <label id="labelnacimiento" class="label1">Nacimiento:<span class="text-danger">*</span></label>
                 <input class="form-control" type="date" id="fechanacimiento" name="fechanacimiento" required>
             </div>
 
-            <div class="col-4 text-center">
-                <label class="form-check-label">Sexo:</label>
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optradio" value="Masculino"
-                            required>Masculino
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optradio" value="Femenino" required>Femenino
-                    </label>
-                </div>
+
+            <div class="col">
+              <label for="sexo">Sexo<span class="text-danger">*</span> </label>
+              <select class="form-control" id="sexo" name="sexo" required>
+                  <option selected value="">Seleccionar sexo</option>
+                  <option value="Femenino">Femenino</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Otro">Otro</option>
+              </select>
             </div>
 
             <div class="col-4">
-                <label class="label1">Matricula:</label>
+                <label class="label1">Matricula:<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="matricula" id="matricula" placeholder="Matricula"
                     required>
             </div>
@@ -61,23 +57,24 @@
         <div class="row m-5">
 
             <div class="col-4">
-                <label class="label1">Domicilio:</label>
+                <label class="label1">Domicilio:<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="domicilio" id="domicilio" placeholder="Domicilio"
                     required>
             </div>
 
             <div class="col-4">
-                <label class="label1">Email:</label>
-                <input class="form-control" type="email" name="email" id="email" placeholder="Email">
+                <label class="label1">Email:<span class="text-danger">*</span></label>
+                <input class="form-control" type="email" name="email" id="email" placeholder="Email" required>
             </div>
 
             <div class="col-4">
-                <label class="label1">Telefono:</label>
+                <label class="label1">Telefono:<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="telefono" id="telefono" placeholder="Telefono"
                     required><br>
 
             </div>
 
+                <p class="small"><span class="text-danger">*</span> Campos requeridos</p>
             <div class="col-12 text-center">
                 <button class="btn btn-primary w-25 mt-4" id="btn1" type="submit">Crear</button>
 

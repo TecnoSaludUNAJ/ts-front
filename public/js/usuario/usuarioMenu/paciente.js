@@ -1,7 +1,7 @@
 export const menuPaciente = `
 <div class="accordion">
-  <div class="card border-0">
-    <div class="card-header bg-white border-0 p-1" id="headingOne">
+  <div class="card border-0 bg-transparent">
+    <div class="card-header bg-transparent border-0 p-1" id="headingOne">
       <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
         <i class="fas fa-th-large"></i> Mi cuenta
       </button>
@@ -13,7 +13,7 @@ export const menuPaciente = `
         </nav>
       </div>
     </div>
-    <div class="card-header bg-white border-0 p-1" id="headingOne">
+    <div class="card-header bg-transparent border-0 p-1" id="headingOne">
       <button class="btn dropdown-toggle btn-block text-left" type="button" data-toggle="collapse" data-target="#pacGestMed" aria-expanded="true" aria-controls="pacGestMed">
         <i class="fas fa-stethoscope"></i> Gestión médica
       </button>

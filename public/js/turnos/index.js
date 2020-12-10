@@ -1,6 +1,6 @@
 import turnoService from "../services/turnosService.js";
 import { formatHoursTwoDigits } from "../utils.js";
-import { DAYS , ESPECIALIDADES_API_URL} from '../constants.js';
+import { DAYS , ESPECIALIDADES_API_URL, ROL_PROFESIONAL } from '../constants.js';
 import { session } from "../usuario/session.js";
 
 const compareHours = ([keya],  [keyb]) => {
@@ -53,7 +53,7 @@ const showDaysInHeaderTable = (response) => {
   tableHead.innerHTML = header;
 };
 
-const showTurnosInTable = (turnos) => {
+const showTurnosInTable = async (turnos) => {
   const table = document.getElementById("tablaDeTurnos");
   const tableBody = table.getElementsByTagName('tbody')[0];
   table.classList.remove("d-none");
@@ -69,11 +69,12 @@ const showTurnosInTable = (turnos) => {
     rowData.forEach((column) => {
       row.innerHTML += column ? `<td>
         <button
+          title="Reservar este turno."
           type="button"
           class="btn btn-success"
           onclick="reservar('${column.fecha}', '${column.horaInicio}',  ${column.idEspecialista}, ${column.idEspecialidad})"
         >
-          Reservar
+          <h4 class="m-0"><i class="fa fa-check"></i></h4>
         </button>
       </td>` : '<td></td>';
     });
@@ -83,12 +84,17 @@ const showTurnosInTable = (turnos) => {
 };
 
 window.reservar = (fecha, horaInicio, idEspecialista, idEspecialidad) => {
+  const querystring = window.location.search;
+  const urlparams = new URLSearchParams(querystring);
+  const pacienteidQuery = urlparams.get("pacienteId");
+  const idPaciente = pacienteidQuery && session.usuario.rolId == ROL_PROFESIONAL ? pacienteidQuery : session.paciente.paciente_Id;
+
   const body = {
     fecha,
     horaInicio,
     idEspecialista,
     idEspecialidad,
-    idPaciente: session.paciente.paciente_Id,
+    idPaciente,
   };
 
   return turnoService.PostTurnos(body)
@@ -130,7 +136,6 @@ const fetchAndRenderTableByWeek = async (operation) => {
   await fetchAndRenderTable(especialidad, turnosDesde);
 }
 
-
 document.getElementById('especialidadForm').addEventListener('submit', handleClickBuscarTurnos);
 document.getElementById('buscarTurnosAnteriorSemana').addEventListener('click', () => fetchAndRenderTableByWeek((date) => date - 5));
 document.getElementById('buscarTurnosSiguienteSemana').addEventListener('click', () => fetchAndRenderTableByWeek((date) => date + 5));
@@ -148,14 +153,14 @@ function mostrarEspecialidades(lista) {
   }
 }
 
-const getEspecialidades = function () {
-  fetch(ESPECIALIDADES_API_URL)
-    .then((response) => response.json())
-    .then((lista) => {
-      mostrarEspecialidades(lista);
-    });
+const getEspecialidades = () => {
+  return fetch(ESPECIALIDADES_API_URL)
+    .then((response) => response.json());
 };
 
 window.onload = function () {
-  getEspecialidades();
+  getEspecialidades()
+    .then((lista) => {
+      mostrarEspecialidades(lista);
+    });
 };

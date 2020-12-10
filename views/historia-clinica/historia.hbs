@@ -1,9 +1,40 @@
 {{> head}}
 {{! --------------- }}
-
-    <div id="containerhistoria" class="container-fluid w-50 d-inline-block">
-        <h3>Datos de interes</h3>
+<div class="container">
+  <h1 class="text-center"><i class="fas fa-history"></i> Historial clínico</h1>
+  <form id="buscadorPaciente" class="px-5 mx-5 my-4">
+    <div class="input-group m-auto" style="width:500px">
+      <input type="text" class="form-control" placeholder="Ingrese DNI del paciente" id="dniFind" name="dniFind" style="width: 3em!important">
+      <div class="input-group-append">
+      <button class="btn btn-outline-success" type="submit" value="submit"><i class="fas fa-search"></i> Buscar paciente</button>
+      </div>
     </div>
-
+    <div class="lead text-center p-5" id="infoSearch">
+      <i class="fab fa-searchengin text-muted d-block my-5" style="font-size: 3.5em;"></i>
+      Busca un paciente por su DNI para visualizar su historial clínico.
+    </div>
+  </form>
+  <section id="datosPaciente" class="border p-4 my-3 d-none">
+      <h5 class="d-block"><i class="far fa-address-card"></i> Paciente</h5>
+      <div>
+      <span class="text-muted font-weight-light">Nombre completo:</span>
+        <span id="nombrecompleto" class="border-bottom">-</span>
+      <div class="row">
+      <div class="col">
+        <span class="text-muted font-weight-light">DNI:</span>
+        <span id="dni" class="border-bottom">-</span>
+      </div>
+      <div class="col">
+        <span class="text-muted font-weight-light">ID único:</span>
+        <span id="pacienteId" class="border-bottom"></span>
+      </div>
+    </div>
+  </section>
+  <div class="container-fluid">
+      <div id="showError" class="alert alert-warning d-none"></div>
+    <div id="containerhistoria" class="container-fluid d-inline-block p-0">
+    </div>
+  </div>
+</div>
 {{! --------------- }}
 {{> footer}}
